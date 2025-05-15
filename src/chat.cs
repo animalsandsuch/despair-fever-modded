@@ -191,6 +191,11 @@ package DespairChat
 				return;
 		}
 
+		if(%player.character.trait["Lisp"])
+		{
+			%text = lispText(%text);
+		}
+
 		if(%player.character.trait["Nervous"])
 		{
 			%text = stutterText(%text);
@@ -422,6 +427,25 @@ function stutterText(%text, %prob)
 			continue;
 		if (getRandom() < %prob)
 			%result = getSubStr(%result, 0, %i) @ %char @ "-" @ %char @ getSubStr(%result, %i+1, strlen(%result));
+	}
+	return %result;
+}
+
+function lispText(%text, %prob)
+{
+	if (%text $= "")
+		return;
+	if (%prob $= "")
+		%prob = 1;
+	if (%prob <= 0)
+		return %text;
+	%result = %text;
+	for (%i=0;%i<strlen(%result);%i++)
+	{
+		if (strpos("sz", %char = getSubStr(%result, %i, 1)) == -1) //incompatible
+			continue;
+		if (getRandom() < %prob)
+			%result = getSubStr(%result, 0, %i) @ "thh" @ getSubStr(%result, %i+1, strlen(%result));
 	}
 	return %result;
 }

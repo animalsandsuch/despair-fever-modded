@@ -18,7 +18,11 @@ function getSkinColorList()
 	%color[%index++] = "0.956863 0.878431 0.784314 1";
 	%color[%index++] = "1 0.878431 0.611765 1";
 	%color[%index++] = "1 0.603922 0.423529 1";
-	%color[%index++] = "0.392157 0.196078 0 1"; //rare color
+	%color[%index++] = "0.902 0.608 0.275 1";
+	%color[%index++] = "0.859 0.588 0.278 1";
+	%color[%index++] = "0.51 0.333 0.137 1";
+	%color[%index++] = "0.51 0.333 0.137 1";
+	%color[%index++] = "1 0.675 0.2 1"; //rare color
 	%i = -1;
 	while(%i++ <= %index)
 	{
@@ -33,8 +37,10 @@ function getRandomSkinColor()
 	%color[%index++] = "0.956863 0.878431 0.784314";
 	%color[%index++] = "1 0.878431 0.611765";
 	%color[%index++] = "1 0.603922 0.423529";
-	if (getRandom(1, 10) == 1) //rare color
-		%color[%index++] = "0.392157 0.196078 0";
+	%color[%index++] = "0.902 0.608 0.275";
+	%color[%index++] = "0.859 0.588 0.278";
+	%color[%index++] = "0.51 0.333 0.137";
+	%color[%index++] = "0.392157 0.196078 0";
 	%pick = getRandom(%index);
 	%r = getmax(getmin(getWord(%color[%pick], 0) + 0.05 - getRandom() * 0.1, 1), 0);
 	%g = getmax(getmin(getWord(%color[%pick], 1) + 0.05 - getRandom() * 0.1, 1), 0);

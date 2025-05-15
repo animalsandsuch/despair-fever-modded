@@ -42,8 +42,12 @@ function Player::updateFootsteps(%this, %lastVert)
 function Player::playFootsteps(%this, %foot)
 {
 	cancel(%this.playFootsteps);
-
+    
 	if (%this.getState() $= "Dead" || %this.isDead)
+	{
+		return;
+	}
+	if (%this.character.trait["Lightfooted"])
 	{
 		return;
 	}
@@ -257,6 +261,7 @@ function getNumberStart( %str )
 
 function loadFootstepSounds()
 {
+
 	%pattern = $Despair::Path @ "res/sounds/footsteps/*.wav";
 	%list = "generic 0";
 

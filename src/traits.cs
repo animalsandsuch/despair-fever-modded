@@ -1,10 +1,11 @@
 $Despair::Traits::Tick = 3000; //miliseconds
 
-$Despair::Traits::Positive = "Investigative	Heavy Sleeper	Gang Member	Extra Tough	Bodybuilder	Athletic	Loudmouth	Optimistic	Glutton	Masochist"; //Medium
-$Despair::Traits::Neutral = "Snorer	Feel No Pain	Hatter	Apathetic	Cold";
-$Despair::Traits::Negative = "Clumsy	Paranoid	Nervous	Frail	Sluggish	Hemophiliac	Squeamish	Softspoken	Social Anxiety	Mood Swings	Melancholic	Schizo	Chain Smoker"; //Schizo Narcoleptic
+$Despair::Traits::Positive = "Investigative	Heavy Sleeper	Gang Member	Extra Tough	Bodybuilder	Athletic	Loudmouth	Optimistic	Glutton	Masochist	Lightfooted"; //Medium
+$Despair::Traits::Neutral = "Snorer	Feel No Pain	Hatter	Apathetic";
+$Despair::Traits::Negative = "Clumsy	Paranoid	Nervous	Frail	Sluggish	Hemophiliac	Squeamish	Softspoken	Social Anxiety	Mood Swings	Melancholic	Schizo	Chain Smoker	Lisp	Cold"; //Schizo Narcoleptic
 
 //positive
+$Despair::Traits::Description["Lightfooted"] = "You make no sound when you walk. You are neenja.";
 $Despair::Traits::Description["Masochist"] = "Your mood does not suffer from being hurt. In fact, you enjoy it.";
 $Despair::Traits::Description["Investigative"] = "You will get more information from corpses.";
 $Despair::Traits::Description["Heavy Sleeper"] = "Can sleep on any surface without suffering sore back!";
@@ -30,7 +31,9 @@ $Despair::Traits::Description["Cold"] = "Constantly ill...";
 $Despair::Traits::Description["Apathetic"] = "Completely unaffected by mood.";
 
 
+
 //negative
+$Despair::Traits::Description["Lisp"] = "You have a heavy lithp.";
 $Despair::Traits::Description["Clumsy"] = "Trip on blood and dropped items, chance to drop held item when tripping!";
 $Despair::Traits::Description["Paranoid"] = "Constantly alert. Never able to get a good night's rest.";
 $Despair::Traits::Description["Nervous"] = "Stuttered speech, easily stressed out.";
@@ -45,7 +48,7 @@ $Despair::Traits::Description["Melancholic"] = "You just can't ever feel happy."
 $Despair::Traits::Description["Chain Smoker"] = "You need to smoke, otherwise you risk mood loss. Spawn with a pack in your closet to satiate you.";
 //disabled
 $Despair::Traits::Description["Narcoleptic"] = "Randomly pass out.";
-$Despair::Traits::Description["Schizo"] = "Daydreaming and spooky voices!!";
+$Despair::Traits::Description["Schizo"] = "You hear things that aren't really there.";
 
 function GenerateTraits(%character, %client)
 {

@@ -228,11 +228,12 @@ function PlayerDespairArmor::onAdd(%data, %player)
 	if(%player.speedScale $= "")
 		%player.speedScale = 1;
 	if(%player.mood $= "")
-		%player.setMood(0, "Your mood is neutral.");
+		%player.setMood(0, "You feel fine.");
 	if(!isEventPending(%player.traitSchedule))
 		%player.traitSchedule();
 	if(!isEventPending(%player.moodSchedule))
 		%player.moodSchedule();
+	
 }
 
 datablock PlayerData(PlayerCorpseArmor : PlayerStandardArmor)
