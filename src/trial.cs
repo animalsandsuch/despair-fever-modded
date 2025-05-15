@@ -1166,7 +1166,7 @@ function DespairEndVote()
 			%player.voteTarget = "";
 		}
 	}
-	$DefaultMiniGame.subEventSchedule = schedule(4000, 0, "ServerPlaySong", "DespairMusicPreamble");
+	$DefaultMiniGame.subEventSchedule = schedule(4000, 0, "ServerPlaySong", "DespairPrayers");
 	$DefaultMiniGame.chatMessageAll('', "\c5Your votes have been cast. Did you make the right choice? Or the dreadfully wrong one?");
 	$DefaultMiniGame.chatMessageAll('', "\c6One minute to say your prayers...");
 	$DefaultMiniGame.eventSchedule = schedule(60000, 0, DespairEndTrial);

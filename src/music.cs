@@ -76,6 +76,13 @@ datablock AudioProfile(DespairMusicPreamble)
 	preload = true;
 };
 
+datablock AudioProfile(DespairPrayers)
+{
+	fileName = $Despair::Path @ "res/music/prayers.ogg";
+	description = audio2D;
+	preload = true;
+};
+
 datablock AudioProfile(DespairMusicOpeningIntro)
 {
 	fileName = $Despair::Path @ "res/music/OpeningIntro.ogg";
