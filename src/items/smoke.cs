@@ -137,11 +137,12 @@ function ViceSmokeImage::onFire(%this, %obj, %slot) {
             %obj.client.chatMessage("\c5You don't feel like smoking at the moment.");
         return;
     }
+	 
 	if (isObject(%obj.ViceItemBot)) {
 		%obj.ViceItemBot.playThread(0, smoke_start);
-		$deleteSchedule = schedule(6000, 0, "deleteSmoke", %this, %obj, %slot);
-        $smokeSchedule = schedule(6000, 0, "ViceSmokeMood", %obj);
+		$deleteSchedule = schedule(6000, 0, "deleteSmoke", %this, %obj, %slot); 
 	}
+	$smokeSchedule = schedule(6000, 0, "ViceSmokeMood", %obj);
 	schedule(300, 0, "ViceSmokeSetSmoke", %obj);
 	%obj.isSmoking = 1;
 }

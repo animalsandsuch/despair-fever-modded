@@ -148,7 +148,11 @@ function applyViceItemProperties(%obj, %bypassApply) {
 	%obj.hideNode("rHand");
 	%obj.hideNode("lHook");
 	%obj.hideNode("rHook");
-
+	if(%char $= "")
+	%char = %pl.character;
+	%app = %char.appearance;
+	%female = %char.gender $= "Female";
+	%handColor = getField(%app, 0);
 	if (!isObject(%pl)) {
 		return;
 	}
@@ -177,42 +181,42 @@ function applyViceItemProperties(%obj, %bypassApply) {
 			%obj.unHideNode("rHand");
 			%pl.hideNode("rHand");
 		} else {
-			%obj.unHideNode("rHook");
-			%pl.hideNode("rHook");
+			%obj.unHideNode("rHand");
+			%pl.hideNode("rHand");
 		}
-		%obj.setNodeColor("rHand", %team.uni_rHandColor);
-		%obj.setNodeColor("rHook", %team.uni_rHandColor);
+		%obj.setNodeColor("rHand", %handColor);
+		%obj.setNodeColor("rHook", %handColor);
 
 		if (!%team.uni_lhand) {
 			%obj.unHideNode("lHand");
 			%pl.hideNode("lHand");
 		} else {
-			%obj.unHideNode("lHook");
-			%pl.hideNode("lHook");
+			%obj.unHideNode("lHand");
+			%pl.hideNode("lHand");
 		}
-		%obj.setNodeColor("lHand", %team.uni_lHandColor);
-		%obj.setNodeColor("lHook", %team.uni_lHandColor);
+		%obj.setNodeColor("lHand", %handColor);
+		%obj.setNodeColor("lHook", %handColor);
 	} else {
 		//hands
 		if (!%pl.client.rhand) {
 			%obj.unHideNode("rHand");
 			%pl.hideNode("rHand");
 		} else {
-			%obj.unHideNode("rHook");
-			%pl.hideNode("rHook");
+			%obj.unHideNode("rHand");
+			%pl.hideNode("rHand");
 		}
-		%obj.setNodeColor("rHand", %pl.client.rHandColor);
-		%obj.setNodeColor("rHook", %pl.client.rHandColor);
+		%obj.setNodeColor("rHand", %handColor);
+		%obj.setNodeColor("rHook", %handColor);
 
 		if (!%pl.client.lhand) {
 			%obj.unHideNode("lHand");
 			%pl.hideNode("lHand");
 		} else {
-			%obj.unHideNode("lHook");
-			%pl.hideNode("lHook");
+			%obj.unHideNode("lHand");
+			%pl.hideNode("lHand");
 		}
-		%obj.setNodeColor("lHand", %pl.client.lHandColor);
-		%obj.setNodeColor("lHook", %pl.client.lHandColor);
+		%obj.setNodeColor("lHand", %handColor);
+		%obj.setNodeColor("lHook", %handColor);
 	}
 }
 
@@ -734,8 +738,8 @@ function player::applyAppearance(%pl,%char)
 		%pl.unHideNode("rhand_blood");
 	if (%pl.bloody["head"])
 		%pl.unHideNode("blood_head");
-	//if (%pl.bloody["headshot"])
-		//%pl.unHideNode("HeadShot");
+	if (%pl.bloody["headshot"])
+		%pl.unHideNode("HeadShot");
 	if(!%hideApp)
 	{
 		if (%pl.bloody["chest_front"])
