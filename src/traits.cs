@@ -1,10 +1,11 @@
 $Despair::Traits::Tick = 3000; //miliseconds
 
-$Despair::Traits::Positive = "Investigative	Heavy Sleeper	Gang Member	Extra Tough	Bodybuilder	Athletic	Loudmouth	Optimistic	Glutton	Masochist	Lightfooted"; //Medium
-$Despair::Traits::Neutral = "Snorer	Feel No Pain	Hatter	Apathetic";
+$Despair::Traits::Positive = "Investigative	Heavy Sleeper	Gang Member	Extra Tough	Bodybuilder	Athletic	Loudmouth	Optimistic	Glutton	Masochist	Lightfooted	Thick Skinned"; //Medium
+$Despair::Traits::Neutral = "Snorer	Feel No Pain	Hatter	Apathetic"; //Wimp
 $Despair::Traits::Negative = "Clumsy	Paranoid	Nervous	Frail	Sluggish	Hemophiliac	Squeamish	Softspoken	Social Anxiety	Mood Swings	Melancholic	Schizo	Chain Smoker	Lisp	Cold"; //Schizo Narcoleptic
 
 //positive
+$Despair::Traits::Description["Thick Skinned"] = "Your skin is hard and resilient. You bleed much, much less.";
 $Despair::Traits::Description["Lightfooted"] = "You make no sound when you walk. You are neenja.";
 $Despair::Traits::Description["Masochist"] = "Your mood does not suffer from being hurt. In fact, you enjoy it.";
 $Despair::Traits::Description["Investigative"] = "You will get more information from corpses.";
@@ -19,7 +20,7 @@ $Despair::Traits::Description["Optimistic"] = "Nothing will make you feel depres
 $Despair::Traits::Description["Chekhov's Gunman"] = "Spawn with a golden revolver. Every round you survive you will get a bullet. Make sure to conceal it!";
 $Despair::Traits::Description["Bodybuilder"] = "Faster weapon swings!";
 $Despair::Traits::Description["Repairman"] = "You have a cool Repair kit in the closet.";
-$Despair::Traits::Description["Glutton"] = "Burgers recover more health when eating.";
+$Despair::Traits::Description["Glutton"] = "You have a refined palate. More health and mood when eating burgers.";
 //disabled
 $Despair::Traits::Description["Medium"] = "Hear the dead when sleeping...";
 
@@ -29,6 +30,7 @@ $Despair::Traits::Description["Feel No Pain"] = "No pain effects!";
 $Despair::Traits::Description["Hatter"] = "Spawn with a random hat in your room!";
 $Despair::Traits::Description["Cold"] = "Constantly ill...";
 $Despair::Traits::Description["Apathetic"] = "Completely unaffected by mood.";
+$Despair::Traits::Description["Wimp"] = "You cry when you bleed. Pussy.";
 
 
 
@@ -39,7 +41,7 @@ $Despair::Traits::Description["Paranoid"] = "Constantly alert. Never able to get
 $Despair::Traits::Description["Nervous"] = "Stuttered speech, easily stressed out.";
 $Despair::Traits::Description["Frail"] = "Less health.";
 $Despair::Traits::Description["Sluggish"] = "Slightly slower run speed.";
-$Despair::Traits::Description["Hemophiliac"] = "Bleed more.";
+$Despair::Traits::Description["Hemophiliac"] = "Your wounds weep, much like a recently orphaned boy.";
 $Despair::Traits::Description["Squeamish"] = "Blood makes you scream! Seeing corpses will make you faint.";
 $Despair::Traits::Description["Softspoken"] = "quieter speech, unable to use caps...";
 $Despair::Traits::Description["Social Anxiety"] = "Being near (living) people for too long makes you freak out and faint.";
@@ -346,12 +348,15 @@ function checkTraitConflicts(%list, %trait)
 	%conflicts[%c++] = "Extra Tough	Frail";
 	%conflicts[%c++] = "Athletic	Sluggish";
 	%conflicts[%c++] = "Investigative	Squeamish";
-	%conflicts[%c++] = "Optimistic	Mood Swings	Melancholic	Apathetic	Masochist";
+	%conflicts[%c++] = "Optimistic	Mood Swings	Melancholic	Apathetic";
 	%conflicts[%c++] = "Loudmouth	Softspoken";
-	%conflicts[%c++] = "Repairman	Gang Member";
+	%conflicts[%c++] = "Repairman	Gang Member	Chain Smoker";
 	%conflicts[%c++] = "Narcoleptic	Social Anxiety";
 	%conflicts[%c++] = "Narcoleptic	Squeamish";
 	%conflicts[%c++] = "Masochist	Feel No Pain";
+	%conflicts[%c++] = "Apathetic	Masochist";
+	%conflicts[%c++] = "Apathetic	Chain Smoker";
+	%conflicts[%c++] = "Wimp	Hemophiliac	Thick Skinned";
 
 	%v = -1;
 	while(%v++ <= %c)

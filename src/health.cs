@@ -72,8 +72,20 @@ package DespairHealth
 
 		if (%type $= "bleed")
 		{
-			%blood = false;
+			if(%player.character.trait["Hemophiliac"])
+			{
+			%blood = true;
 			%playPain = false;
+			}
+			else 
+			if(%player.character.trait["Wimp"])
+			{
+			%blood = false;
+			%playPain = true;
+			}
+			else
+			%playPain = false;
+			%blood = false;
 		}
 
 		if(%player.mood !$= "")
@@ -330,8 +342,9 @@ package DespairHealth
 		{
 			%player.setStatusEffect($SE_damageSlot, "bleeding");
 			if(%player.character.trait["Hemophiliac"])
-				%player.bleedTicks = 13;
+				%player.bleedTicks = 9;
 		}
+
 
 		if(%player.unconscious)
 		{

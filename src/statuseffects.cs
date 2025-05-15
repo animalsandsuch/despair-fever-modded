@@ -203,12 +203,24 @@ function Player::updateStatusEffect(%player, %slot)
 			%decal.color = 0.75 + 0.1 * getRandom() @ " 0 0 1";
 			%decal.setNodeColor("ALL", %decal.color);
 			%decal.hideNode("ALL");
+			if(%player.character.trait["Hemophiliac"])
+			{
+			%decal.unHideNode("blood5");
+			}
 			%decal.unHideNode(blood @ getRandom(3, 4));
 			%decal.spillTime = $Sim::Time;
 			%decal.freshness = 0;
+			if(%player.character.trait["Hemophiliac"])
+			{
+			%decal.freshness = 3;
+			}
 			%decal.isBlood = true;
 			%decal.source = %player;
 			%size = 1 + 0.5 * getRandom();
+			if(%player.character.trait["Hemophiliac"])
+			{
+			%size = 0.25 + 0.5 * getRandom();
+			}
 			%decal.setScale(%size SPC %size SPC %size);
 			if(getRandom() < 0.45)
 				serverPlay3d(BloodSplat @ getRandom(1,3), getWords(%ray, 1, 3));
@@ -219,7 +231,29 @@ function Player::updateStatusEffect(%player, %slot)
 				return 0;
 			}
 			else
-				%player.damage(%player.attackSource[%player.attackCount], %player.getPosition(), 2, "bleed");
+			if(%player.character.trait["Thick Skinned"])
+			{
+				if(%player.bleedTicks >= 2)
+				{
+					%player.bleedTicks = 2;
+				}
+				%player.damage(%player.attackSource[%player.attackCount], %player.getPosition(), 1, "bleed");
+				%player.setDamageFlash(0.1);
+				%player.statusSchedule[%slot] = %player.schedule(1000, updateStatusEffect, %slot);
+			}
+			else 
+			if(%player.character.trait["Hemophiliac"])
+			{
+				if(%player.bleedTicks >= 9)
+				{
+					%player.bleedTicks = 9;
+				}
+				%player.damage(%player.attackSource[%player.attackCount], %player.getPosition(), 3, "bleed");
+				%player.setDamageFlash(0.3);
+				%player.statusSchedule[%slot] = %player.schedule(1000, updateStatusEffect, %slot);
+			}
+			else
+			%player.damage(%player.attackSource[%player.attackCount], %player.getPosition(), 2, "bleed");
 			%player.setDamageFlash(0.2);
 			%player.statusSchedule[%slot] = %player.schedule(1000, updateStatusEffect, %slot);
 		case "shock":
