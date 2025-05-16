@@ -221,6 +221,13 @@ datablock AudioProfile(DespairMusicIntense)
 	preload = true;
 };
 
+datablock AudioProfile(DespairMusicIntense2)
+{
+	fileName = $Despair::Path @ "res/music/deadManWalking2.ogg";
+	description = AudioLooping2D;
+	preload = true;
+};
+
 datablock AudioProfile(DespairMusicWonderfulIntro)
 {
 	fileName = $Despair::Path @ "res/music/wonderfulStoryIntro.ogg";

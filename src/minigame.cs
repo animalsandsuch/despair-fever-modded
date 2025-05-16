@@ -832,7 +832,7 @@ package DespairFever
 				$FinalBoss = true;
 				cancel($DefaultMiniGame.eventSchedule);
 				$DefaultMiniGame.eventSchedule = schedule(300*1000, $pickedKiller.player, "kill");
-				ServerPlaySong(pickField("DespairMusicIntense"));
+				ServerPlaySong(pickField("DespairMusicIntense" TAB "DespairMusicIntense2"));
 				DespairSetWeapons(1);
 			}
 		}
