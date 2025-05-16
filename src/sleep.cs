@@ -93,7 +93,7 @@ function Player::KnockOut(%this, %duration)
 
 	%this.setArmThread(land);
 	%this.setImageTrigger(0, 0);
-	%this.playThread(0, "death1");
+	%this.playThread(0, pickField("deathLeft" TAB "deathRight" TAB "deathFront" TAB "deathBack"));
 	%this.playThread(1, "root");
 	%this.playThread(2, "root");
 	%this.playThread(3, "root");
@@ -280,7 +280,7 @@ function Player::Slip(%this, %ticks)
 		%this.changeDatablock(PlayerCorpseArmor);
 		%this.setArmThread(land);
 		%this.setImageTrigger(0, 0);
-		%this.playThread(0, "death1");
+		%this.playThread(0, "deathFront");
 		%this.playThread(1, "root");
 		%this.playThread(2, "root");
 		%this.playThread(3, "root");
@@ -318,7 +318,7 @@ function serverCmdSleep(%this, %bypass)
 		%pl.playThread(0, "root");
 		%pl.playThread(1, "root");
 		%pl.playThread(2, "root");
-		%pl.playThread(3, "death1");
+		%pl.playThread(3, pickField("deathFront" TAB "deathBack" TAB "deathLeft" TAB "deathRight"));
 		%pl.setActionThread("root");
 		%pl.unconscious = 1;
 		%pl.currResting = 1;
