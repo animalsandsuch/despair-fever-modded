@@ -2,7 +2,7 @@ $Despair::Traits::Tick = 3000; //miliseconds
 
 $Despair::Traits::Positive = "Investigative	Heavy Sleeper	Gang Member	Extra Tough	Bodybuilder	Athletic	Loudmouth	Optimistic	Glutton	Masochist	Lightfooted	Thick Skinned"; //Medium
 $Despair::Traits::Neutral = "Snorer	Feel No Pain	Hatter	Apathetic"; //Wimp
-$Despair::Traits::Negative = "Clumsy	Paranoid	Nervous	Frail	Sluggish	Hemophiliac	Squeamish	Softspoken	Social Anxiety	Mood Swings	Melancholic	Schizo	Chain Smoker	Lisp	Cold"; //Schizo Narcoleptic
+$Despair::Traits::Negative = "Clumsy	Paranoid	Nervous	Frail	Sluggish	Hemophiliac	Squeamish	Softspoken	Social Anxiety	Mood Swings	Melancholic	Schizo	Chain Smoker	Lisp	Cold	Alopecia"; //Schizo Narcoleptic
 
 //positive
 $Despair::Traits::Description["Thick Skinned"] = "Your skin is hard and resilient. You bleed much, much less.";
@@ -48,6 +48,7 @@ $Despair::Traits::Description["Social Anxiety"] = "Being near (living) people fo
 $Despair::Traits::Description["Mood Swings"] = "Your mood is swayed a lot easier.";
 $Despair::Traits::Description["Melancholic"] = "You just can't ever feel happy.";
 $Despair::Traits::Description["Chain Smoker"] = "You need to smoke, otherwise you risk mood loss. Spawn with a pack in your closet to satiate you.";
+$Despair::Traits::Description["Alopecia"] = "You shed hair strands randomly.";
 //disabled
 $Despair::Traits::Description["Narcoleptic"] = "Randomly pass out.";
 $Despair::Traits::Description["Schizo"] = "You hear things that aren't really there.";
@@ -279,10 +280,16 @@ function Player::traitSchedule(%obj)
 			messageClient(%obj.client, '', '\c7[%1]<color:ffff80>%2 %3<color:fffff0>, %4', %time, " " @ %dream, %type, pickField("They'll never believe you." TAB "It's too late." TAB "Give up." TAB "HELP" TAB "yo" TAB "hey" TAB "Do you feel it, too?" TAB "Do you hear it, too?" TAB "Do you smell it, too?" TAB "Do you see it, too?" TAB "Do you taste it, too?" TAB "Grievous injury, palpable fear..." TAB "Festering fear consumes the mind!" TAB "Gnawing uncertainty -- the birthplace of dread." TAB "The horror..." TAB "The abyss returns even the boldest gaze." TAB "Fear and frailty finally claim their due." TAB "body" TAB "BODY" TAB "blood" TAB "BLOOD" TAB "strand" TAB "STRAND" TAB "fiber" TAB "FIBER" TAB "You can't trust him." TAB "You can't trust them." TAB "You can't trust her." TAB "They're going to get you."));
 			%obj.client.play2d(DespairSpookyWhisper);
 		}
-		else if(getRandom() < 0.0015)
+		else if(getRandom() < 0.0025)
 		{
-			%obj.setDamageFlash(1);
-			%obj.client.play2d(pickField("BladeHitSound1" TAB "BladeHitSound2" TAB "BladeHitSound3"));
+			%obj.addMood(-1, "What the?!");
+			%obj.setDamageFlash(0.5);
+			%obj.client.play2d(pickField("BladeHitSound1" TAB "BladeHitSound2" TAB "BluntHitSound1" TAB "BluntHitSound2" TAB "BluntHitSound3"));
+			if(%obj.character.gender $= "female")
+			{
+			%obj.client.play2d(pickField("VoicePain1Female" TAB "VoicePain2Female" TAB "VoicePain3Female"));
+			}
+			else
 			%obj.client.play2d(pickField("VoicePain1Male" TAB "VoicePain2Male" TAB "VoicePain3Male"));
 		}
 	}
@@ -298,6 +305,39 @@ function Player::traitSchedule(%obj)
 			serverCmdMe(%obj.client, %text);
 			if(getRandom() < 0.1)
 				%obj.addMood(-1);
+		}
+	}
+	if (%obj.character.trait["Alopecia"])
+	{
+		if(%obj.ranTheCodeAlready = 0)
+		{
+		%obj.fiberShedTotal = 0;
+		%obj.ranTheCodeAlready++;
+		}
+		%app = %obj.character.appearance;
+		if(getRandom() < 0.5)
+		{
+		if(getField(%obj.character.appearance, 3) $= "")
+		{
+			return;
+		}
+		if ($Sim::Time - %obj.lastFiber < 60)
+		{
+			return;
+		}
+		%color = getField(%app, 7);
+		%obj.spawnFiber(%color);
+		%obj.fiberShedTotal++;
+		}
+		if (%obj.fiberShedTotal >= 10)
+		{
+			if(getField(%obj.character.appearance, 3) $= "")
+		{
+			return;
+		}
+		%obj.character.appearance = setField(%obj.character.appearance, 3, "");
+		%obj.applyAppearance();
+		%obj.addMood(-5, "YOU WENT BALD!!");
 		}
 	}
 	if(%obj.character.trait["Chain Smoker"])

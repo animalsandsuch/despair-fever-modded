@@ -171,7 +171,7 @@ function Player::KnockOutTick(%this, %ticks, %done)
 			if(getRandom() < 0.4)
 			{
 				%this.forcedEmote = true;
-				serverCmdMe(%this.client, "gasp");
+				serverCmdMe(%this.client, "gasps!");
 			}
 		}
 		else if (getRandom() < 0.1)

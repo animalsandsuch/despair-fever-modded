@@ -436,16 +436,16 @@ function lispText(%text, %prob)
 	if (%text $= "")
 		return;
 	if (%prob $= "")
-		%prob = 1;
+		%prob = 0.5;
 	if (%prob <= 0)
 		return %text;
 	%result = %text;
 	for (%i=0;%i<strlen(%result);%i++)
 	{
-		if (strpos("sz", %char = getSubStr(%result, %i, 1)) == -1) //incompatible
+		if (strpos("szSZ", %char = getSubStr(%result, %i, 1)) == -1) //incompatible
 			continue;
 		if (getRandom() < %prob)
-			%result = getSubStr(%result, 0, %i) @ "thh" @ getSubStr(%result, %i+1, strlen(%result));
+			%result = getSubStr(%result, 0, %i) @ pickField("th'" TAB "'th" TAB "t'h") @ getSubStr(%result, %i+1, strlen(%result));
 	}
 	return %result;
 }
