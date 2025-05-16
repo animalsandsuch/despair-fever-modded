@@ -395,7 +395,7 @@ package DespairHealth
 		//else
 
 		    %player.playThread(0, "root");
-			%player.playThread(0, pickField("deathLeft" TAB "deathRight" TAB "deathBack"));
+			%player.playThread(0, pickField("deathFront" TAB "deathLeft" TAB "deathRight" TAB "deathBack"));
 			%player.playThread(2, "jump");
 			%player.schedule(100, playThread, 2, "plant");
 			

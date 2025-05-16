@@ -4,8 +4,7 @@ datablock TSShapeConstructor(mDespairDts) {
 	sequence1 = "base/data/shapes/player/player_anim_1h.dsq";
 	sequence2 = "base/data/shapes/player/player_anim_misc.dsq";
 	sequence3 = "base/data/shapes/player/player_anim_2h.dsq";
-	sequence4 = "base/data/shapes/player/c_death.dsq";
-	sequence5 = "base/data/shapes/player/c_death_front.dsq"; 
+	sequence4 = "base/data/shapes/player/m_df_death.dsq";
 };
 
 datablock PlayerData(PlayerDespairArmor : PlayerStandardArmor)
