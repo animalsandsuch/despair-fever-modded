@@ -224,7 +224,7 @@ function Player::updateStatusEffect(%player, %slot)
 			%decal.setScale(%size SPC %size SPC %size);
 			if(getRandom() < 0.45)
 				serverPlay3d(BloodSplat @ getRandom(1,3), getWords(%ray, 1, 3));
-			if(isObject(%player.client) && %player.client.killer && %player.health - 2 <= 0) //Killers can't get downed from bleeding
+			if(isObject(%player.client) && %player.client.killer && %player.health - 5 <= 0) //Killers can't get downed from bleeding
 			{
 				%player.bleedTicks = 0;
 				%player.removeStatusEffect(%slot, %effect);
