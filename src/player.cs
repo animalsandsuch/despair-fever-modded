@@ -49,8 +49,8 @@ datablock PlayerData(ViceItemsArmor : PlayerStandardArmor) {
 
 	uiName = "";
 
-	boundingBox = vectorScale("20 20 20", 4);
-	crouchBoundingBox = vectorScale("20 20 20", 4);
+	boundingBox = vectorScale("0 0 0", 4);
+	crouchBoundingBox = vectorScale("0 0 0", 4);
 	
 	keepWhenDead = 1;
 };
