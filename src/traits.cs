@@ -48,7 +48,7 @@ $Despair::Traits::Description["Social Anxiety"] = "Being near (living) people fo
 $Despair::Traits::Description["Mood Swings"] = "Your mood is swayed a lot easier.";
 $Despair::Traits::Description["Melancholic"] = "You just can't ever feel happy.";
 $Despair::Traits::Description["Chain Smoker"] = "You need to smoke, otherwise you risk mood loss. Spawn with a pack in your closet to satiate you.";
-$Despair::Traits::Description["Alopecia"] = "You shed hair strands randomly.";
+$Despair::Traits::Description["Alopecia"] = "You shed hair strands randomly. Also, even while wearing a hat, you shed hair fibers while swinging.";
 //disabled
 $Despair::Traits::Description["Narcoleptic"] = "Randomly pass out.";
 $Despair::Traits::Description["Schizo"] = "You hear things that aren't really there.";

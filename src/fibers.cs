@@ -23,8 +23,15 @@ function Player::spawnFiber(%this, %color)
 		}
 		if(isObject(%hat = %this.tool[%this.hatSlot]) && isObject(%this.getMountedImage(2)) && %this.getMountedImage(2) == nameToID(%hat.image))
 		{
+			if(%this.character.trait["Alopecia"])
+			{
+					
+			}
+			else
 			if(%hat.hideHair || %hairName $= "")
+			{
 				%hairColor = "";
+			}
 		}
 
 		//If color is null, dont tabulate it

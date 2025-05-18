@@ -304,6 +304,11 @@ function getHairList(%gender)
 		%choice[%high++] = "hair_punk";
 		%choice[%high++] = "hair_shaggy";
 		%choice[%high++] = "hair_fabio";
+		%choice[%high++] = "hair_balding";
+		%choice[%high++] = "hair_cool";
+		%choice[%high++] = "hair_slick";
+		%choice[%high++] = "hair_part";
+		%choice[%high++] = "hair_freddy";
 	}
 	else if (%gender $= "female")//Female hairs
 	{
@@ -315,11 +320,17 @@ function getHairList(%gender)
 		%choice[%high++] = "hair_velma";
 		%choice[%high++] = "hair_mahiru";
 		%choice[%high++] = "hair_maya";
+		%choice[%high++] = "hair_girl";
+		%choice[%high++] = "hair_mom";
+		%choice[%high++] = "hair_wavy";
+		%choice[%high++] = "hair_grammy";
 	}
 	else if (%gender $= "rare")//Rare unisex
 	{
 		%choice[%high++] = "hair_mohawk";
 		%choice[%high++] = "hair_rocker";
+		%choice[%high++] = "hair_emo";
+		%choice[%high++] = "hair_afro";
 	}
 	%i = -1;
 	while(%i++ <= %high)
