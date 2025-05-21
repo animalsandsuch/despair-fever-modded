@@ -147,7 +147,7 @@ function createPlayer(%client)
 
 	if(%character.trait["Hatter"])
 	{
-		%choices = "HatBlindItem HatCatItem HatChefItem HatCowboyItem HatDuckItem HatFancyItem HatFedoraItem HatFoxItem HatGangsterItem HatMountyItem HatPartyhatItem HatRHoodItem HatStrawItem HatSunglassesItem HatTophatItem HatWizardItem";
+		%choices = "HatBlindItem HatCatItem HatChefItem HatCowboyItem HatDuckItem HatFancyItem HatFedoraItem HatFoxItem HatGangsterItem HatMountyItem HatPartyhatItem HatRHoodItem HatStrawItem HatSunglassesItem HatTophatItem HatWizardItem HatPropellerItem HatStarShades";
 		%pick = getWord(%choices, getRandom(0, getWordCount(%choices)-1));
 		if(isObject(%roomCloset))
 			%roomCloset.spawnItem("0 0 1", %pick);
@@ -397,8 +397,8 @@ function despairPrepareGame()
 	}
 
 	//Hats!
-	%choices[1] = "HatBlindItem HatCatItem HatChefItem HatCowboyItem HatDuckItem HatFancyItem HatFedoraItem HatFoxItem HatGangsterItem HatMountyItem HatPartyhatItem HatRHoodItem HatStrawItem HatSunglassesItem HatTophatItem HatWizardItem";
-	%choices[2] = "HatClownItem HatDisguiseItem HatDogeItem HatRichardItem HatSkimaskItem HatGasmaskItem HatMummyItem HatNinjaItem"; //Items that disguise you
+	%choices[1] = "HatBlindItem HatCatItem HatChefItem HatCowboyItem HatDuckItem HatFancyItem HatFedoraItem HatFoxItem HatGangsterItem HatMountyItem HatPartyhatItem HatRHoodItem HatStrawItem HatSunglassesItem HatTophatItem HatWizardItem HatPropellerItem HatStarShadesItem";
+	%choices[2] = "HatClownItem HatDisguiseItem HatDogeItem HatRichardItem HatSkimaskItem HatGasmaskItem HatMummyItem HatNinjaItem HatStrangerItem HatOutlawItem HatGentlemanItem"; //Items that disguise you
 	for (%i = 0; %i < BrickGroup_888888.NTObjectCount["_hatSpawn"]; %i++)
 	{
 		%brick = BrickGroup_888888.NTObject["_hatSpawn", %i];

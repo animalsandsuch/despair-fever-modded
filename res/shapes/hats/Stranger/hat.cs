@@ -1,28 +1,28 @@
-datablock ItemData(HatBlindItem)
+datablock ItemData(HatStrangerItem)
 {
 	category = "Hat";
 	classname = "Hat";
-	shapeFile = "./Blind.dts";
-	image = HatBlindImage;
+	shapeFile = "./Stranger.dts";
+	image = HatStrangerImage;
 	mass = 1;
 	drag = 0.3;
 	density = 0.2;
 	elasticity = 0;
 	friction = 1;
 	doColorShift = false;
-	uiName = "Hat Eyepatch";
+	uiName = "Hat Stranger";
 	canDrop = true;
 	iconName = $Despair::Path @ "res/shapes/hats/icon_hat";
 
-	disguise = false;
-	hidehair = false;
+	disguise = true;
+	hidehair = true;
+	disguiseName = "Stranger";
 };
-datablock ShapeBaseImageData(HatBlindImage)
+datablock ShapeBaseImageData(HatStrangerImage)
 {
-	item = HatBlindItem;
-	shapeFile = "./Blind.dts";
+	item = HatStrangerItem;
+	shapeFile = "./Stranger.dts";
 	doColorShift = false;
 	mountPoint = $headSlot;
-	eyeOffset = "0 0 -50";
 	eyeOffset = "0 0 -50";
 };
