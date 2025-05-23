@@ -398,7 +398,7 @@ function despairPrepareGame()
 
 	//Hats!
 	%choices[1] = "HatBlindItem HatCatItem HatChefItem HatCowboyItem HatDuckItem HatFancyItem HatFedoraItem HatFoxItem HatGangsterItem HatMountyItem HatPartyhatItem HatRHoodItem HatStrawItem HatSunglassesItem HatTophatItem HatWizardItem HatPropellerItem HatStarShadesItem";
-	%choices[2] = "HatClownItem HatDisguiseItem HatDogeItem HatRichardItem HatSkimaskItem HatGasmaskItem HatMummyItem HatNinjaItem HatStrangerItem HatOutlawItem HatGentlemanItem"; //Items that disguise you
+	%choices[2] = "HatClownItem HatDisguiseItem HatDogeItem HatRichardItem HatSkimaskItem HatGasmaskItem HatMummyItem HatNinjaItem HatStrangerItem HatOutlawItem HatGentlemanItem HatBigHeadItem"; //Items that disguise you
 	for (%i = 0; %i < BrickGroup_888888.NTObjectCount["_hatSpawn"]; %i++)
 	{
 		%brick = BrickGroup_888888.NTObject["_hatSpawn", %i];

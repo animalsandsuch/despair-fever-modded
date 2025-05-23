@@ -1,4 +1,6 @@
 //glass
+ADDON Print_Daki_Default
+ADDON Brick_Dakimakura
 ADDON System_BlocklandGlass
 ADDON Script_Respawnplayers
 ADDON Bot_Hole
