@@ -25,9 +25,8 @@ function Player::spawnFiber(%this, %color)
 		{
 			if(%this.character.trait["Alopecia"])
 			{
-					
+				return;
 			}
-			else
 			if(%hat.hideHair || %hairName $= "")
 			{
 				%hairColor = "";

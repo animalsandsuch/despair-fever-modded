@@ -1,10 +1,11 @@
 $Despair::Traits::Tick = 3000; //miliseconds
 
-$Despair::Traits::Positive = "Investigative	Heavy Sleeper	Gang Member	Extra Tough	Bodybuilder	Athletic	Loudmouth	Optimistic	Glutton	Masochist	Lightfooted	Thick Skinned"; //Medium
+$Despair::Traits::Positive = "Writer	Investigative	Heavy Sleeper	Gang Member	Extra Tough	Bodybuilder	Athletic	Loudmouth	Optimistic	Glutton	Masochist	Lightfooted	Thick Skinned"; //Medium
 $Despair::Traits::Neutral = "Snorer	Feel No Pain	Hatter	Apathetic"; //Wimp
 $Despair::Traits::Negative = "Clumsy	Paranoid	Nervous	Frail	Sluggish	Hemophiliac	Squeamish	Softspoken	Social Anxiety	Mood Swings	Melancholic	Schizo	Chain Smoker	Lisp	Cold	Alopecia"; //Schizo Narcoleptic
 
 //positive
+$Despair::Traits::Description["Writer"] = "You guide your pen with skill. Your writing no longer gets scrambled, even if you're dying or your pen is running out of ink.";
 $Despair::Traits::Description["Thick Skinned"] = "Your skin is hard and resilient. You bleed much, much less.";
 $Despair::Traits::Description["Lightfooted"] = "You make no sound when you walk. You are neenja.";
 $Despair::Traits::Description["Masochist"] = "Your mood does not suffer from being hurt. In fact, you enjoy it.";

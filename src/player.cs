@@ -658,11 +658,11 @@ function player::applyAppearance(%pl,%char)
 
 	if(%pl.mangled)
 	{
-		%handColor = 0.75 + 0.1 * getRandom() @ " 0 0 1";
-		%headColor = 0.75 + 0.1 * getRandom() @ " 0 0 1";
-		%shirtColor = 0.75 + 0.1 * getRandom() @ " 0 0 1";
-		%pantsColor = 0.75 + 0.1 * getRandom() @ " 0 0 1";
-		%shoesColor = 0.75 + 0.1 * getRandom() @ " 0 0 1";
+		%handColor = 0.859 + 0.05 * getRandom() @ " 0.067 0.067 1";
+		%headColor = 0.859 + 0.05 * getRandom() @ " 0.067 0.067 1";
+		%shirtColor = 0.859 + 0.05 * getRandom() @ " 0.067 0.067 1";
+		%pantsColor = 0.859 + 0.05 * getRandom() @ " 0.067 0.067 1";
+		%shoesColor = 0.859 + 0.05 * getRandom() @ " 0.067 0.067 1";
 
 		%faceName = "asciiTerror";
 		%decalName = "";
@@ -778,16 +778,16 @@ function player::applyAppearance(%pl,%char)
 	%pl.setNodeColor("skirttrimleft",%pantsColor);
 
 	//Set blood colors.
-	%pl.setNodeColor("lshoe_blood", "0.7 0 0 1");
-	%pl.setNodeColor("rshoe_blood", "0.7 0 0 1");
-	%pl.setNodeColor("lhand_blood", "0.7 0 0 1");
-	%pl.setNodeColor("rhand_blood", "0.7 0 0 1");
-	%pl.setNodeColor("blood_head", "0.7 0 0 1");
-	//%pl.setNodeColor("HeadShot", "0.7 0 0 1");
-	%pl.setNodeColor("chest_blood_front", "0.7 0 0 1");
-	%pl.setNodeColor("chest_blood_back", "0.7 0 0 1");
-	%pl.setNodeColor("femchest_blood_front", "0.7 0 0 1");
-	%pl.setNodeColor("femchest_blood_back", "0.7 0 0 1");
+	%pl.setNodeColor("lshoe_blood", "0.859 0.067 0.067 1");
+	%pl.setNodeColor("rshoe_blood", "0.859 0.067 0.067 1");
+	%pl.setNodeColor("lhand_blood", "0.859 0.067 0.067 1");
+	%pl.setNodeColor("rhand_blood", "0.859 0.067 0.067 1");
+	%pl.setNodeColor("blood_head", "0.859 0.067 0.067 1");
+	%pl.setNodeColor("HeadShot", "0.859 0.067 0.067 1");
+	%pl.setNodeColor("chest_blood_front", "0.859 0.067 0.067 1");
+	%pl.setNodeColor("chest_blood_back", "0.859 0.067 0.067 1");
+	%pl.setNodeColor("femchest_blood_front", "0.859 0.067 0.067 1");
+	%pl.setNodeColor("femchest_blood_back", "0.859 0.067 0.067 1");
 }
 
 package DespairPlayerPackage

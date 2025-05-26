@@ -17,7 +17,7 @@ function sprayBloodTick(%position, %velocity, %source, %i)
 		%rayPosition = getWords(%ray, 1, 3);
 		%rayPosition = VectorAdd(%rayPosition, VectorScale(%rayNormal, 0.01));
 		%size = 0.6 + 0.4 * getRandom();
-		%color = 0.75 + 0.1 * getRandom() @ " 0 0 1";
+		%color = 0.859 + 0.05 * getRandom() @ " 0.067 0.067 1";
 
 		%angle = mATan(
 			getWord(%ray, 1) - getWord(%position, 0),
@@ -158,7 +158,7 @@ function updateCorpseBloodPool(%pos, %source)
 			%decal.noUnclutter = true;
 			%decal.hideNode("ALL");
 			%decal.unHideNode("blood5");
-			%decal.color = 0.6 + 0.2 * getRandom() @ " 0 0 1";
+			%decal.color = 0.759 + 0.1 * getRandom() @ " 0.067 0.067 1";
 			%decal.setNodeColor("ALL", %decal.color);
 			%decal.source = %source;
 		}
@@ -176,7 +176,7 @@ function Player::doBloodyFootprint(%this, %ray, %foot, %alpha)
 	%rayNormal = getWords(%ray, 4, 6);
 	%rayPosition = VectorAdd(%rayPosition, VectorScale(%rayNormal, 0.01));
 
-	%color = 0.75 + 0.1 * getRandom() SPC "0 0" SPC %alpha;
+	%color = 0.859 + 0.05 * getRandom() SPC "0.067 0.067" SPC %alpha;
 	%forward = %this.getForwardVector();
 	%angle = mATan(getWord(%forward, 0), getWord(%forward, 1));
 	%decal = spawnDecal(%datablock, %rayPosition, %rayNormal, 1, %color, %angle, "", 1);
@@ -294,9 +294,9 @@ datablock ParticleData(smallBlood3Particle)
 	spinSpeed     = 0;
 	spinRandomMin = 0;
 	spinRandomMax = 0;
-	colors[0] = "0.6 0 0 1";
-	colors[1] = "0.5 0 0 0.9 ";
-	colors[2] = "0.4 0 0 0";
+	colors[0] = "0.8 0.067 0.067 1";
+	colors[1] = "0.7 0.067 0.067 0.9 ";
+	colors[2] = "0.6 0.067 0.067 0";
 	sizes[0] = 0.06;
 	sizes[1] = 0.09;
 	sizes[2] = 0.04;

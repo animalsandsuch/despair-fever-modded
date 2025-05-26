@@ -200,7 +200,7 @@ function Player::updateStatusEffect(%player, %slot)
 			}
 			%pos = %player.getPosition();
 			%decal = spawnDecalFromRayCast(NewBloodDecal, containerRayCast(%pos, VectorSub(%pos, "0 0 1"), $SprayBloodMask));
-			%decal.color = 0.75 + 0.1 * getRandom() @ " 0 0 1";
+			%decal.color = 0.859 + 0.05 * getRandom() @ " 0.067 0.067 1";
 			%decal.setNodeColor("ALL", %decal.color);
 			%decal.hideNode("ALL");
 			if(%player.character.trait["Hemophiliac"])

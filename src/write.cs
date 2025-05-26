@@ -34,7 +34,10 @@ function serverCmdWrite(%client, %a1, %a2, %a3, %a4, %a5, %a6, %a7, %a8, %a9, %a
 
 	if(%player.health <= 0) //Critical state
 	{
+		if(!%player.character.trait["Writer"])
+			{
 		%text = scrambleText(%text, mClampF(strlen(%text) * 0.01, 0.1, 0.9));
+			}
 
 		%a = %player.getEyePoint();
 		%b = vectorAdd(%a, vectorScale(%player.getEyeVector(), 6));
@@ -50,7 +53,7 @@ function serverCmdWrite(%client, %a1, %a2, %a3, %a4, %a5, %a6, %a7, %a8, %a9, %a
 			%rayPosition = VectorAdd(%rayPosition, VectorScale(%rayNormal, 0.01));
 			%forward = vectorScale(%player.getForwardVector(), getWord(%rayNormal, 2));
 			%angle = mATan(getWord(%forward, 0), getWord(%forward, 1));
-			%color = 0.75 + 0.1 * getRandom() @ " 0 0 1";
+			%color = 0.859 + 0.05 * getRandom() @ " 0.067 0.067 1";
 			%decal = spawnDecal(writingDecal, %rayPosition, %rayNormal, 1, %color, %angle, "", 1);
 			%decal.spillTime = $Sim::Time;
 			%decal.freshness = 1;
@@ -65,7 +68,7 @@ function serverCmdWrite(%client, %a1, %a2, %a3, %a4, %a5, %a6, %a7, %a8, %a9, %a
 		}
 		else
 		{
-			messageClient(%client, '', "\c5Look at a surface!!");
+			messageClient(%client, '', "\c5Look at a surface you stupid whore!!");
 		}
 		return;
 	}
@@ -82,13 +85,23 @@ function serverCmdWrite(%client, %a1, %a2, %a3, %a4, %a5, %a6, %a7, %a8, %a9, %a
 		{
 			%pen = true;
 			%prob = getMax(0, 1 - ((%props.ink*2)/%props.maxink));
+			if(%player.character.trait["Writer"])
+			{
+				%prob = 0;
+			}
 			%text = scrambleText(%text, %prob);
 		}
 	}
 	else if(%player.bloodyWriting > 0)
 	{
+		
+		%prob = 0.2;
+		if(%player.character.trait["Writer"])
+			{
+				%prob = 0;
+			}
 		%blood = true;
-		%text = scrambleText(%text, 0.2);
+		%text = scrambleText(%text, %prob);
 		%player.bloodyWriting--;
 	}
 
@@ -145,7 +158,7 @@ function serverCmdWrite(%client, %a1, %a2, %a3, %a4, %a5, %a6, %a7, %a8, %a9, %a
 			%rayPosition = VectorAdd(%rayPosition, VectorScale(%rayNormal, 0.01));
 			%forward = vectorScale(%player.getForwardVector(), getWord(%rayNormal, 2));
 			%angle = mATan(getWord(%forward, 0), getWord(%forward, 1));
-			%color = %pen ? "0 0 1 1" : (0.75 + 0.1 * getRandom() @ " 0 0 1");
+			%color = %pen ? "0 0 1 1" : (0.859 + 0.05 * getRandom() @ " 0.067 0.067 1");
 			%decal = spawnDecal(writingDecal, %rayPosition, %rayNormal, 1, %color, %angle, "", 1);
 			%decal.color = %color;
 			%decal.spillTime = $Sim::Time;
