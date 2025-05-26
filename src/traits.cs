@@ -2,7 +2,7 @@ $Despair::Traits::Tick = 3000; //miliseconds
 
 $Despair::Traits::Positive = "Writer	Investigative	Heavy Sleeper	Gang Member	Extra Tough	Bodybuilder	Athletic	Loudmouth	Optimistic	Glutton	Masochist	Lightfooted	Thick Skinned"; //Medium
 $Despair::Traits::Neutral = "Snorer	Feel No Pain	Hatter	Apathetic"; //Wimp
-$Despair::Traits::Negative = "Clumsy	Paranoid	Nervous	Frail	Sluggish	Hemophiliac	Squeamish	Softspoken	Social Anxiety	Mood Swings	Melancholic	Schizo	Chain Smoker	Lisp	Cold	Alopecia"; //Schizo Narcoleptic
+$Despair::Traits::Negative = "Dysgraphia	Clumsy	Paranoid	Nervous	Frail	Sluggish	Hemophiliac	Squeamish	Softspoken	Social Anxiety	Mood Swings	Melancholic	Schizo	Chain Smoker	Lisp	Cold	Alopecia"; //Schizo Narcoleptic
 
 //positive
 $Despair::Traits::Description["Writer"] = "You guide your pen with skill. Your writing no longer gets scrambled, even if you're dying or your pen is running out of ink.";
@@ -36,6 +36,7 @@ $Despair::Traits::Description["Wimp"] = "You cry when you bleed. Pussy.";
 
 
 //negative
+$Despair::Traits::Description["Dysgraphia"] = "Everything you write ends up looking like chicken-scratch.";
 $Despair::Traits::Description["Lisp"] = "You have a heavy lithp.";
 $Despair::Traits::Description["Clumsy"] = "Trip on blood and dropped items, chance to drop held item when tripping!";
 $Despair::Traits::Description["Paranoid"] = "Constantly alert. Never able to get a good night's rest.";
@@ -398,6 +399,7 @@ function checkTraitConflicts(%list, %trait)
 	%conflicts[%c++] = "Apathetic	Masochist";
 	%conflicts[%c++] = "Apathetic	Chain Smoker";
 	%conflicts[%c++] = "Wimp	Hemophiliac	Thick Skinned";
+	%conflicts[%c++] = "Writer	Dysgraphia";
 
 	%v = -1;
 	while(%v++ <= %c)

@@ -15,7 +15,11 @@ function serverCmdWrite(%client, %a1, %a2, %a3, %a4, %a5, %a6, %a7, %a8, %a9, %a
 {
 	if(!isObject(%player = %client.player))
 		return;
-
+	if(%player.character.trait["Dysgraphia"])
+			{
+	%prob = 0.35;
+	%text = scrambleText(%text, %prob);
+			}
 	%text = %a1;
 	for (%i=2; %i<=24; %i++)
 		%text = %text SPC %a[%i];
@@ -34,9 +38,14 @@ function serverCmdWrite(%client, %a1, %a2, %a3, %a4, %a5, %a6, %a7, %a8, %a9, %a
 
 	if(%player.health <= 0) //Critical state
 	{
+
 		if(!%player.character.trait["Writer"])
 			{
 		%text = scrambleText(%text, mClampF(strlen(%text) * 0.01, 0.1, 0.9));
+			}
+		if(%player.character.trait["Dysgraphia"])
+			{
+		%text = scrambleText(%text, 0.65);
 			}
 
 		%a = %player.getEyePoint();
@@ -89,6 +98,10 @@ function serverCmdWrite(%client, %a1, %a2, %a3, %a4, %a5, %a6, %a7, %a8, %a9, %a
 			{
 				%prob = 0;
 			}
+			if(%player.character.trait["Dysgraphia"])
+			{
+				%prob = 0.5;
+			}
 			%text = scrambleText(%text, %prob);
 		}
 	}
@@ -100,6 +113,10 @@ function serverCmdWrite(%client, %a1, %a2, %a3, %a4, %a5, %a6, %a7, %a8, %a9, %a
 			{
 				%prob = 0;
 			}
+		if(%player.character.trait["Dysgraphia"])
+			{
+				%prob = 0.5;
+			}	
 		%blood = true;
 		%text = scrambleText(%text, %prob);
 		%player.bloodyWriting--;
@@ -113,6 +130,11 @@ function serverCmdWrite(%client, %a1, %a2, %a3, %a4, %a5, %a6, %a7, %a8, %a9, %a
 			messageClient(%client, '', "\c5You are unable to write on this paper!");
 		else
 		{
+			if(%player.character.trait["Dysgraphia"])
+			{
+			%prob = 0.5;
+			%text = scrambleText(%text, %prob);
+			}
 			%props.contents = %props.contents @ %color @ %text;
 			if(!%blood)
 				serverPlay3d("WriteSound", %player.getHackPosition());
@@ -140,6 +162,11 @@ function serverCmdWrite(%client, %a1, %a2, %a3, %a4, %a5, %a6, %a7, %a8, %a9, %a
 					messageClient(%client, '', "\c5You are unable to write on this paper!");
 				else
 				{
+					if(%player.character.trait["Dysgraphia"])
+					{
+					%prob = 0.5;
+					%text = scrambleText(%text, %prob);
+					}
 					%props.contents = %props.contents @ %color @ %text;
 					RS_Log(%client.getPlayerName() SPC "(" @ %client.getBLID() @ ") used /write '" @ %text @ "'", "\c2");
 				}
