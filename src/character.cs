@@ -8,7 +8,8 @@ function getRandomAppearance(%gender)
 		getRandomGenericColor() TAB
 		getRandomPantsColor() TAB
 		getRandomPantsColor() TAB
-		getRandomHairColor();
+		getRandomHairColor() TAB
+		getRandomFontName();
 	return %appearance;
 }
 
@@ -286,6 +287,44 @@ function getRandomHairName(%gender)
 	return pickField(%fields);
 }
 
+function getRandomFontName()
+{
+	%fields = getFontList();
+	return pickField(%fields);
+}
+
+function getFontList()
+{
+	%high = -1;
+	%choice[%high++] = "ink free";
+	%choice[%high++] = "gabriola";
+	%choice[%high++] = "segoe script";
+	%choice[%high++] = "georgia";
+	%choice[%high++] = "calibri";
+	%choice[%high++] = "bahnschrift condensed";
+	%choice[%high++] = "candara light";
+	%choice[%high++] = "gargoyle serif";
+	%choice[%high++] = "gargoyle mono";
+	%choice[%high++] = "javanese text";
+	%choice[%high++] = "modern";
+	%choice[%high++] = "mv boli";
+	%choice[%high++] = "segoe print";
+	%choice[%high++] = "verdana";
+	%choice[%high++] = "sitka text";
+	%choice[%high++] = "comic sans ms";
+	%choice[%high++] = "yu gothic ui";
+	%choice[%high++] = "sylfaen";
+	%choice[%high++] = "bahnschrift";
+	%i = -1;
+	while(%i++ <= %high)
+	{
+		%fields = setField(%fields, getFieldCount(%fields), %choice[%i]);
+	}
+
+	return %fields;
+}
+
+
 function getHairList(%gender)
 {
 	%high = -1;
@@ -331,6 +370,10 @@ function getHairList(%gender)
 		%choice[%high++] = "hair_rocker";
 		%choice[%high++] = "hair_emo";
 		%choice[%high++] = "hair_afro";
+	}
+	else if (%gender $= "unobtanium")
+	{
+		%choice[%high++] = "hair_alopecia";
 	}
 	%i = -1;
 	while(%i++ <= %high)

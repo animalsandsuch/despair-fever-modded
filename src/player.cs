@@ -684,7 +684,14 @@ function player::applyAppearance(%pl,%char)
 		if(%hairName !$= "" && %hat.replaceHair[%char.gender] !$= "")
 			%hairName = %hat.replaceHair[%char.gender];
 		if(%hat.hideHair)
+		{
+		if (%pl.character.trait["Alopecia"])
+		{
+			%hairName = "hair_alopecia";
+		}
+		else
 			%hairName = "";
+		}
 		if(%hat.disguise)
 		{
 			%faceName = "smiley";

@@ -20,6 +20,9 @@ function serverCmdWrite(%client, %a1, %a2, %a3, %a4, %a5, %a6, %a7, %a8, %a9, %a
 	%prob = 0.35;
 	%text = scrambleText(%text, %prob);
 			}
+	%app = %player.character.appearance;
+	%font = getField(%app, 8);
+	%text = "<font:" @ %font @ ":24>" @ %text;
 	%text = %a1;
 	for (%i=2; %i<=24; %i++)
 		%text = %text SPC %a[%i];
@@ -47,7 +50,9 @@ function serverCmdWrite(%client, %a1, %a2, %a3, %a4, %a5, %a6, %a7, %a8, %a9, %a
 			{
 		%text = scrambleText(%text, 0.65);
 			}
-
+		%app = %player.character.appearance;
+		%font = getField(%app, 8);
+		%text = "<font:" @ %font @ ":24>\c0" @ %text;
 		%a = %player.getEyePoint();
 		%b = vectorAdd(%a, vectorScale(%player.getEyeVector(), 6));
 		%mask =	$SprayBloodMask;
@@ -102,7 +107,11 @@ function serverCmdWrite(%client, %a1, %a2, %a3, %a4, %a5, %a6, %a7, %a8, %a9, %a
 			{
 				%prob = 0.5;
 			}
+			%app = %player.character.appearance;
+			%font = getField(%app, 8);
 			%text = scrambleText(%text, %prob);
+			%text = "<font:" @ %font @ ":24>\c1" @ %text;
+
 		}
 	}
 	else if(%player.bloodyWriting > 0)
@@ -135,6 +144,9 @@ function serverCmdWrite(%client, %a1, %a2, %a3, %a4, %a5, %a6, %a7, %a8, %a9, %a
 			%prob = 0.5;
 			%text = scrambleText(%text, %prob);
 			}
+			%app = %player.character.appearance;
+			%font = getField(%app, 8);
+			%text = "<font:" @ %font @ ":24>" @ %color @ %text;
 			%props.contents = %props.contents @ %color @ %text;
 			if(!%blood)
 				serverPlay3d("WriteSound", %player.getHackPosition());
@@ -167,6 +179,9 @@ function serverCmdWrite(%client, %a1, %a2, %a3, %a4, %a5, %a6, %a7, %a8, %a9, %a
 					%prob = 0.5;
 					%text = scrambleText(%text, %prob);
 					}
+					%app = %player.character.appearance;
+					%font = getField(%app, 8);
+					%text = "<font:" @ %font @ ":24>" @ %color @ %text;
 					%props.contents = %props.contents @ %color @ %text;
 					RS_Log(%client.getPlayerName() SPC "(" @ %client.getBLID() @ ") used /write '" @ %text @ "'", "\c2");
 				}
