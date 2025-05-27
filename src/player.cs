@@ -694,7 +694,7 @@ function player::applyAppearance(%pl,%char)
 		}
 		if(%hat.disguise)
 		{
-			%faceName = "smiley";
+			%faceName = "memeBlockMongler";
 			if(%hideApp)
 				%handColor = "0.25 0.25 0.25 1";
 		}

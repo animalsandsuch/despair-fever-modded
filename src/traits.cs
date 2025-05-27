@@ -261,7 +261,7 @@ function Player::traitSchedule(%obj)
 	if(%obj.character.trait["Schizo"])
 	{
 		
-		if(getRandom() < 0.0075)
+		if(getRandom() < 0.01)
 		{
 			%character = GameCharacters.getObject(getRandom(0, GameCharacters.getCount()-1));
 			if (isObject(%character))
@@ -282,7 +282,7 @@ function Player::traitSchedule(%obj)
 			messageClient(%obj.client, '', '\c7[%1]<color:ffff80>%2 %3<color:fffff0>, %4', %time, " " @ %dream, %type, pickField("They'll never believe you." TAB "It's too late." TAB "Give up." TAB "HELP" TAB "yo" TAB "hey" TAB "Do you feel it, too?" TAB "Do you hear it, too?" TAB "Do you smell it, too?" TAB "Do you see it, too?" TAB "Do you taste it, too?" TAB "Grievous injury, palpable fear..." TAB "Festering fear consumes the mind!" TAB "Gnawing uncertainty -- the birthplace of dread." TAB "The horror..." TAB "The abyss returns even the boldest gaze." TAB "Fear and frailty finally claim their due." TAB "body" TAB "BODY" TAB "blood" TAB "BLOOD" TAB "strand" TAB "STRAND" TAB "fiber" TAB "FIBER" TAB "You can't trust him." TAB "You can't trust them." TAB "You can't trust her." TAB "They're going to get you."));
 			%obj.client.play2d(DespairSpookyWhisper);
 		}
-		else if(getRandom() < 0.0025)
+		else if(getRandom() < 0.0075)
 		{
 			%obj.addMood(-1, "What the?!");
 			%obj.setDamageFlash(0.5);
