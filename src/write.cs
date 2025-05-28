@@ -205,7 +205,9 @@ function serverCmdWrite(%client, %a1, %a2, %a3, %a4, %a5, %a6, %a7, %a8, %a9, %a
 			%decal.color = %color;
 			%decal.spillTime = $Sim::Time;
 			%decal.freshness = 1;
-			%decal.contents = (%pen ? "\c1" : "\c0") @ %text;
+			%app = %player.character.appearance;
+			%font = getField(%app, 8);
+			%decal.contents = "<font:" @ %font @ ":24>" @ (%pen ? "\c1" : "\c0") @ %text;
 			%decal.source = %player;
 			RS_Log(%client.getPlayerName() SPC "(" @ %client.getBLID() @ ") used /write '" @ %text @ "'", "\c2");
 			if(%blood)

@@ -208,6 +208,22 @@ function getRandomPantsColor()
 function getFaceList(%gender)
 {
 	%high = -1;
+	%choice[%high++] = "evilsmirk";
+	%choice[%high++] = "neutraleyebrows";
+	%choice[%high++] = "neutralconcentrated";
+	%choice[%high++] = "neutralorly";
+	%choice[%high++] = "smileyidea";
+	%choice[%high++] = "smileyneutral";
+	%choice[%high++] = "smirk2";
+	%choice[%high++] = "ehface";
+	%choice[%high++] = "sigh";
+	%choice[%high++] = "smilyevil";
+	%choice[%high++] = "smilyworried";
+	%choice[%high++] = "neutralwhat";
+	%choice[%high++] = "neutralmad";
+	%choice[%high++] = "neutralworried";
+	%choice[%high++] = "smileysexy2";
+	%choice[%high++] = "smileysexy";
 	%choice[%high++] = "smiley";
 	if (%gender $= "male")
 	{
@@ -219,9 +235,10 @@ function getFaceList(%gender)
 		%choice[%high++] = "smileyCreepy";
 		//Winterbite faces:
 		%choice[%high++] = "smileyST";
-		%choice[%high++] = "kleinerSmiley";
-		%choice[%high++] = "kleinerSmiley2ST";
-		%choice[%high++] = "kleinerSmiley2";
+		%choice[%high++] = "KleinerSmiley";
+		%choice[%high++] = "KleinerSmiley2ST";
+		%choice[%high++] = "KleinerSmiley2";
+		%choice[%high++] = "smileySnakeST";
 	}
 	else if(%gender $= "female")
 	{

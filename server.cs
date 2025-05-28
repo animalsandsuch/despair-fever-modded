@@ -33,6 +33,7 @@ exec("./lib/scope.cs");
 exec("./lib/timedfiring.cs");
 exec("./lib/timedraycast.cs");
 //src
+exec("./src/extraResources.cs");
 exec("./src/savedata.cs");
 exec("./src/sounds.cs"); //Important to be first - contains audio descriptions
 exec("./src/logging.cs"); //Logging

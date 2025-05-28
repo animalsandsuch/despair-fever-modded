@@ -163,7 +163,7 @@ function GameConnection::examineObject(%client, %col)
 	{
 		if(%col.getDataBlock().getID() == nameToID("writingDecal"))
 		{
-			%text = %text @ "This is a crude " @ (%col.isBlood ? "\c0bloody" : "") SPC "scrawl.";
+			%text = %text @ "This is a crude" @ (%col.isBlood ? " \c0bloody" : "") SPC "scrawl.";
 			%text = %text @ "\n" @ %col.contents;
 		}
 		else if(%col.getDataBlock().getID() == nameToID("strandDecal"))
