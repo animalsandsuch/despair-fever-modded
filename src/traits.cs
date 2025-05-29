@@ -396,8 +396,7 @@ function checkTraitConflicts(%list, %trait)
 	%conflicts[%c++] = "Narcoleptic	Social Anxiety";
 	%conflicts[%c++] = "Narcoleptic	Squeamish";
 	%conflicts[%c++] = "Masochist	Feel No Pain";
-	%conflicts[%c++] = "Apathetic	Masochist";
-	%conflicts[%c++] = "Apathetic	Chain Smoker";
+	%conflicts[%c++] = "Apathetic	Masochist	Chain Smoker";
 	%conflicts[%c++] = "Wimp	Hemophiliac	Thick Skinned";
 	%conflicts[%c++] = "Writer	Dysgraphia";
 

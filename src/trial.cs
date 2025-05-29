@@ -377,6 +377,7 @@ function despairStartInvestigation(%no_announce)
 	//	DespairSetWeapons(0);
 	if ($deathCount > 0)
 	{
+		%player.investigationBoombox = false;
 		$investigationLength = $investigationStart $= "" ? $Despair::InvestigationLength : ($investigationStart - $Sim::Time) + $Despair::InvestigationExtraLength;
 		//if($investigationStart > $Sim::Time + $investigationLength) //investigation longer than extralength
 		//	return;
@@ -415,6 +416,10 @@ function despairStartInvestigation(%no_announce)
 			if(isObject(%player))
 			{
 				%player.setStatusEffect($SE_sleepSlot, "");
+			}
+			if(isObject(%player))
+			{
+				%player.investigationBoombox = true;
 			}
 		}
 	}

@@ -69,6 +69,7 @@ exec("./src/charactercreator.cs"); //Exec after minigame because this one overwr
 //items
 exec("./src/items/banana.cs");
 exec("./src/items/bloodpack.cs");
+exec("./src/items/boombox.cs");
 exec("./src/items/box.cs");
 exec("./src/items/burger.cs");
 exec("./src/items/smoke.cs");

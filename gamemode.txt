@@ -1,4 +1,8 @@
 //glass
+MUSIC Yoshi's_Island_DS_-_Wildlands
+ADDON Item_Keycard
+ADDON Event_setPlayerTransform
+ADDON Event_doPlayerTeleport
 ADDON Print_Daki_Default
 ADDON Brick_Dakimakura
 ADDON System_BlocklandGlass

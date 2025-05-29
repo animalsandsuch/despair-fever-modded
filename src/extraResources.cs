@@ -28,7 +28,6 @@ addExtraResource("Add-Ons/Face_Useful/neutralorly.png");
 addExtraResource("Add-Ons/Face_Useful/smileyidea.png");
 addExtraResource("Add-Ons/Face_Useful/smileyneutral.png");
 addExtraResource("Add-Ons/Face_Useful/smirk2.png");
-addExtraResource("Add-Ons/Face_Useful/evilsmirk.png");
 addExtraResource("Add-Ons/Face_Useful/ehface.png");
 addExtraResource("Add-Ons/Face_Useful/sigh.png");
 addExtraResource("Add-Ons/Face_Useful/smilyevil.png");
@@ -38,6 +37,23 @@ addExtraResource("Add-Ons/Face_Useful/neutralmad.png");
 addExtraResource("Add-Ons/Face_Useful/neutralworried.png");
 addExtraResource("Add-Ons/Face_Useful/smileysexy2.png");
 addExtraResource("Add-Ons/Face_Useful/smileysexy.png");
+addExtraResource("Add-Ons/Decal_PlayerFitNE/neutraleyebrows.png");
+addExtraResource("Add-Ons/Decal_PlayerFitNE/neutralconcentrated.png");
+addExtraResource("Add-Ons/Decal_PlayerFitNE/flanntemp.png");
+addExtraResource("Add-Ons/Decal_PlayerFitNE/polologo.png");
+addExtraResource("Add-Ons/Decal_PlayerFitNE/polosoft.png");
+addExtraResource("Add-Ons/Decal_PlayerFitNE/polostripel.png");
+addExtraResource("Add-Ons/Decal_PlayerFitNE/polostripels.png");
+addExtraResource("Add-Ons/Decal_PlayerFitNE/polotemp.png");
+addExtraResource("Add-Ons/Decal_PlayerFitNE/zhwindnike.png");
+addExtraResource("Add-Ons/Decal_PlayerFitNE/zhnorthface.png");
+addExtraResource("Add-Ons/Decal_PlayerFitNE/underarm.png");
+addExtraResource("Add-Ons/Decal_PlayerFitNE/underarms.png");
+addExtraResource("Add-Ons/Decal_PlayerFitNE/loveny.png");
+addExtraResource("Add-Ons/Decal_PlayerFitNE/uzacdc.png");
+addExtraResource("Add-Ons/Decal_PlayerFitNE/uzdchood.png");
+addExtraResource("Add-Ons/Decal_PlayerFitNE/dcshirt.png");
+
 function addExtraResource(%fileName)
 {
 	// Don't add the same file multiple times

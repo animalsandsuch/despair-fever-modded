@@ -279,6 +279,21 @@ function getDecalList()
 	%choice[%high++] = "Medieval-Eagle";
 	%choice[%high++] = "Hoodie";
 	%choice[%high++] = "Alyx";
+	%choice[%high++] = "flanntemp";
+	%choice[%high++] = "polologo";
+	%choice[%high++] = "polosoft";
+	%choice[%high++] = "polostripel";
+	%choice[%high++] = "polostripels";
+	%choice[%high++] = "polotemp";
+	%choice[%high++] = "zhwindnike";
+	%choice[%high++] = "zhnorthface";
+	%choice[%high++] = "underarm";
+	%choice[%high++] = "underarms";
+	%choice[%high++] = "loveny";
+	%choice[%high++] = "uzacdc";
+	%choice[%high++] = "uzdchood";
+	%choice[%high++] = "dcshirt";
+	
 	%i = -1;
 	while(%i++ <= %high)
 	{
