@@ -1,6 +1,9 @@
 //glass
-MUSIC Yoshi's_Island_DS_-_Wildlands
+MUSIC femtanyl_-_WORLDWID3
+MUSIC femtanyl_-_NASTYWERKKKK
+MUSIC femtanyl_-_ATTACKING_VERTICAL
 ADDON Item_Keycard
+ADDON Event_playPitchedSound
 ADDON Event_setPlayerTransform
 ADDON Event_doPlayerTeleport
 ADDON Print_Daki_Default
@@ -50,7 +53,7 @@ ADDON Weapon_Sword
 ADDON Weapon_Push_Broom
 
 ADDON Support_Doors
-//ADDON Support_Player_Persistence
+ADDON Support_Player_Persistence
 ADDON Brick_Doors
 
 ADDON Brick_Halloween
@@ -82,6 +85,41 @@ ADDON Event_Camera_Control
 
 //ADDON Event_Zones
 
+ADDON Brick_1RandomPack
+ADDON Brick_2dMusic
+ADDON Brick_13Degree
+ADDON Brick_Arch
+ADDON Brick_Checkpoint
+ADDON Brick_Christmas_Tree
+ADDON Brick_Default_Fence_Extras
+ADDON Brick_DemiansBB
+ADDON Brick_DemiansBB2
+ADDON Brick_Fence
+ADDON Brick_GlassPanes
+ADDON Brick_HalfPlatePack
+ADDON Brick_1RandomPack
+ADDON Brick_Halloween
+ADDON Brick_Large_Cubes
+ADDON Brick_ModTer_4xPack
+ADDON Brick_ModTer_BasicPack
+ADDON Brick_ModTer_InvertedPack
+ADDON Brick_Mystery
+ADDON Brick_Poster_8x
+ADDON Brick_Print_Icons
+ADDON Brick_PrintPlates
+ADDON Brick_ShortRangeMusic
+ADDON Brick_SmallBricks
+ADDON Brick_SmallRampsCornersPack
+ADDON Brick_SmallRampsPack
+ADDON Brick_Spiderwebs
+ADDON Brick_Teledoor
+ADDON Brick_TilePlates
+ADDON Brick_Treasure_Chest
+ADDON Brick_V15
+ADDON Brick_VerticalPlatePack
+ADDON Brick_Wedge
+ADDON Brick_WedgePlus
+ADDON Brick_WindowExtensions
 ADDON Brick_DemiansBP_1x
 ADDON Brick_DemiansBP_1x_half
 ADDON Brick_DemiansBP_2x_half
@@ -102,16 +140,9 @@ ADDON Brick_Doors_Demian_Other
 ADDON Brick_Doors_Demian_Thematic
 ADDON Brick_Doors_Frameless
 
-ADDON Brick_GlassPanes
-ADDON Brick_TilePlates
-ADDON Brick_VerticalPlatePack
-ADDON Brick_HalfPlatePack
-ADDON Brick_SmallRampsPack
-ADDON Brick_SmallRampsCornersPack
-ADDON Brick_SmallBricks
 
-ADDON Brick_Wedge
-ADDON Brick_WedgePlus
+
+
 
 //ADDON Brick_Zones
 
