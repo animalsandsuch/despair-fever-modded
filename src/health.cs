@@ -344,6 +344,10 @@ package DespairHealth
 			if(%player.character.trait["Hemophiliac"])
 				%player.bleedTicks = 9;
 		}
+		//if(getRandom() > (%type $= "blunt" ? 0.3 : 0.15))
+		//{
+		//	%player.setStatusEffect($SE_damageSlot1, "concussed");
+		//}
 
 
 		if(%player.unconscious)

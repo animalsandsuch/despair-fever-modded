@@ -1,7 +1,7 @@
 $Despair::Traits::Tick = 3000; //miliseconds
 
 $Despair::Traits::Positive = "Writer	Investigative	Heavy Sleeper	Gang Member	Extra Tough	Bodybuilder	Athletic	Loudmouth	Optimistic	Glutton	Masochist	Lightfooted	Thick Skinned"; //Medium
-$Despair::Traits::Neutral = "Snorer	Feel No Pain	Hatter	Apathetic"; //Wimp
+$Despair::Traits::Neutral = "Snorer	Feel No Pain	Hatter"; //Wimp
 $Despair::Traits::Negative = "Dysgraphia	Clumsy	Paranoid	Nervous	Frail	Sluggish	Hemophiliac	Squeamish	Softspoken	Social Anxiety	Mood Swings	Melancholic	Schizo	Chain Smoker	Lisp	Cold	Alopecia"; //Schizo Narcoleptic
 
 //positive
@@ -383,39 +383,39 @@ function Player::traitSchedule(%obj)
 
 function checkTraitConflicts(%list, %trait)
 {
-	if (%trait $= "" || %list $= "")
-		return false;
+    if (%trait $= "" || %list $= "")
+        return false;
 
-	%c = -1;
-	%conflicts[%c++] = "Extra Tough	Frail";
-	%conflicts[%c++] = "Athletic	Sluggish";
-	%conflicts[%c++] = "Investigative	Squeamish";
-	%conflicts[%c++] = "Optimistic	Mood Swings	Melancholic	Apathetic";
-	%conflicts[%c++] = "Loudmouth	Softspoken";
-	%conflicts[%c++] = "Repairman	Gang Member	Chain Smoker";
-	%conflicts[%c++] = "Narcoleptic	Social Anxiety";
-	%conflicts[%c++] = "Narcoleptic	Squeamish";
-	%conflicts[%c++] = "Masochist	Feel No Pain";
-	%conflicts[%c++] = "Apathetic	Masochist	Chain Smoker";
-	%conflicts[%c++] = "Wimp	Hemophiliac	Thick Skinned";
-	%conflicts[%c++] = "Writer	Dysgraphia";
+    %c = -1;
+	%conflicts[%c++] = "Extra Tough\tFrail";
+	%conflicts[%c++] = "Athletic\tSluggish";
+	%conflicts[%c++] = "Investigative\tSqueamish";
+	%conflicts[%c++] = "Optimistic\tMood Swings\tMelancholic\tApathetic";
+	%conflicts[%c++] = "Loudmouth\tSoftspoken";
+	%conflicts[%c++] = "Repairman\tGang Member\tChain Smoker";
+	%conflicts[%c++] = "Narcoleptic\tSocial Anxiety";
+	%conflicts[%c++] = "Narcoleptic\tSqueamish";
+	%conflicts[%c++] = "Masochist\tFeel No Pain";
+	%conflicts[%c++] = "Apathetic\tMasochist\tChain Smoker";
+	%conflicts[%c++] = "Wimp\tHemophiliac\tThick Skinned";
+	%conflicts[%c++] = "Writer\tDysgraphia";
 
-	%v = -1;
-	while(%v++ <= %c)
-	{
-		if (findField(%conflicts[%v], %trait) != -1)
-		{
-			%conflist = %conflicts[%v];
-			break;
-		}
-	}
+    %v = -1;
+    while(%v++ <= %c)
+    {
+        if (findField(%conflicts[%v], %trait) != -1)
+        {
+            %conflist = %conflist TAB %conflicts[%v];
+        }
+    }
+    %conflist = trim(%conflist);
 
-	for(%i = 0; %i < getFieldCount(%list); %i++)
-	{
-		%a = getField(%list, %i);
-		if(%a $= %trait || findField(%conflist, %a) != -1)
-			return true;
-	}
+    for(%i = 0; %i < getFieldCount(%list); %i++)
+    {
+        %a = getField(%list, %i);
+        if(%a $= %trait || findField(%conflist, %a) != -1)
+            return true;
+    }
 
-	return false;
+    return false;
 }

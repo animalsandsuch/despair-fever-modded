@@ -338,7 +338,6 @@ function getFontList()
 	%choice[%high++] = "gargoyle serif";
 	%choice[%high++] = "gargoyle mono";
 	%choice[%high++] = "javanese text";
-	%choice[%high++] = "modern";
 	%choice[%high++] = "mv boli";
 	%choice[%high++] = "segoe print";
 	%choice[%high++] = "verdana";

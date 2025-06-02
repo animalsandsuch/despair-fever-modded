@@ -1,7 +1,14 @@
 //glass
-MUSIC femtanyl_-_WORLDWID3
-MUSIC femtanyl_-_NASTYWERKKKK
-MUSIC femtanyl_-_ATTACKING_VERTICAL
+MUSIC WORLDWID3
+MUSIC NASTYWERKKKK
+MUSIC ATTACKING_VERTICAL
+MUSIC B.J._Don't_Cry
+MUSIC Get_It_Up
+MUSIC I_got_my_tooth_removed
+MUSIC PUSH_UR_T3MPRR
+MUSIC shitfart666
+MUSIC Shut_Me_Up
+MUSIC Static
 ADDON Item_Keycard
 ADDON Event_playPitchedSound
 ADDON Event_setPlayerTransform

@@ -171,7 +171,7 @@ datablock AudioProfile(DespairMusicInvestigationIntro1)
 	fileName = $Despair::Path @ "res/music/investigationintro1.ogg";
 	description = audio2D;
 	preload = true;
-	loopStart = 27042;
+	loopStart = 8106;
 	loopProfile = DespairMusicInvestigationLoop1;
 };
 
@@ -187,7 +187,7 @@ datablock AudioProfile(DespairMusicInvestigationIntro2)
 	fileName = $Despair::Path @ "res/music/investigationintro2.ogg";
 	description = audio2D;
 	preload = true;
-	loopStart = 5649;
+	loopStart = 5523;
 	loopProfile = DespairMusicInvestigationLoop2;
 };
 
@@ -203,7 +203,7 @@ datablock AudioProfile(DespairMusicInvestigationIntro3)
 	fileName = $Despair::Path @ "res/music/investigationintro3.ogg";
 	description = audio2D;
 	preload = true;
-	loopStart = 80433;
+	loopStart = 6195;
 	loopProfile = DespairMusicInvestigationLoop3;
 };
 

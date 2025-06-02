@@ -45,8 +45,8 @@ datablock ShapeBaseImageData(ScalpelImage)
 
 	fireManual = true;
 
-	windUp = 0.35;
-	fireDelay = 0.35;
+	windUp = 0.2;
+	fireDelay = 0.2;
 	fireScript = "onFire";
 	meleeRange = 3;
 

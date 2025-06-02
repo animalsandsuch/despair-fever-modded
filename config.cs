@@ -30,7 +30,7 @@ $Despair::Mood::Enabled = true;
 //Traits
 $Despair::Traits::Enabled = true;
 //Change map to school,mansion,motel,syndrome,campdespair,resort or hood depending on the build.
-$map = "hood";
+$map = "school";
 //MOTEL MAP PREFS:
 if($map $= "motel")
 {

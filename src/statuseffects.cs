@@ -133,8 +133,13 @@ function Player::setStatusEffect(%player, %slot, %effect, %nomsg)
 			%player.updateSpeedScale(0.7);
 			cancel(%player.statusSchedule[%slot]);
 			%player.statusSchedule[%slot] = %player.schedule(3000, removeStatusEffect, %slot, %effect);
-		case "concussion":
-			%player.setWhiteOut(0.4); //BOOM!! FREAK THE FUCK OUT!!
+		case "concussed":
+			if(%slot != $SE_damageSlot1)
+				return %slot;
+			if(!%nomsg && isObject(%player.client) && %player.statusEffect[%slot] !$= "concussed")
+				%player.addMood(-3, "You got " @ getStatusEffectColor(%effect) @ "concussed\c5!", 1);
+				%player.setWhiteOut(0.4);
+			//BOOM!! FREAK THE FUCK OUT!!
 			%player.swingSpeedMod = 1.2;
 			%player.updateSpeedScale(0.8);
 			cancel(%player.statusSchedule[%slot]);
@@ -264,7 +269,7 @@ function Player::updateStatusEffect(%player, %slot)
 			//
 		case "wounded leg":
 			//
-		case "concussion":
+		case "concussed":
 			//
 		case "abdominal trauma":
 			//
@@ -307,10 +312,10 @@ function getStatusEffectColor(%effect)
 			%color = "<color:AA3939>";
 		case "wounded leg":
 			%color = "<color:AA3939>";
-		case "concussion":
-			%color = "<color:801515>";
+		case "concussed":
+			%color = "<color:808080>";
 		case "abdominal trauma":
-			%color = "<color:801515>";
+			%color = "<color:808080>";
 	}
 	return %color;
 }
