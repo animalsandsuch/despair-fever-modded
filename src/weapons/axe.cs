@@ -46,7 +46,7 @@ datablock ShapeBaseImageData(AxeImage)
 	fireManual = true;
 
 	windUp = 0.3;
-	fireDelay = 0.6;
+	fireDelay = 0.45;
 	fireScript = "onFire";
 	meleeRange = 4;
 
