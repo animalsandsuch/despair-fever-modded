@@ -36,6 +36,7 @@ $Despair::Traits::Description["Wimp"] = "You cry when you bleed. Pussy.";
 
 
 //negative
+$Despair::Traits::Description["Dementia"] = "You don't remember when someone said something to you.";
 $Despair::Traits::Description["Dysgraphia"] = "Everything you write ends up looking like chicken-scratch.";
 $Despair::Traits::Description["Lisp"] = "You have a heavy lithp.";
 $Despair::Traits::Description["Clumsy"] = "Trip on blood and dropped items, chance to drop held item when tripping!";

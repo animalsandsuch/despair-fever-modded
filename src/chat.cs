@@ -91,9 +91,8 @@ function serverCmdMe(%client, %m1, %m2, %m3, %m4, %m5, %m6, %m7, %m8, %m9, %m10,
 			if (vectorDist(%a = %other.player.getEyePoint(), %b = %pl.getEyePoint()) > 24) //Out of range
 				continue;
 			if(%ray = containerRayCast(%a, %b, $TypeMasks::FxBrickObjectType, %pl))
-				%_name = "Someone";
+				%_name = "Unknown";
 		}
-
 		messageClient(%other, '', '\c7[%1] <color:ffff80>%2 %3', %time, %_name, %text);
 	}
 }
@@ -245,7 +244,9 @@ package DespairChat
 			if (!isObject(%member.player) || %member.miniGame != $DefaultMiniGame)
 			{
 				if(%member.miniGame != $DefaultMiniGame && %member.isAdmin)
+				{
 					messageClient(%member, '', '\c7[%1] <color:ffff80>%2 %3<color:fffff0>, %4', %time, %name SPC "(" @ %client.getPlayerName() @ ")", %type, %text);
+				}
 				else
 					messageClient(%member, '', '\c7[%1] <color:ffff80>%2 %3<color:fffff0>, %4', %time, %name, %type, %text);
 				continue;
@@ -268,7 +269,7 @@ package DespairChat
 				%factor = getMax(0, %distance / (%range*4) - 0.15);
 				%_text = scrambleText(%text, %factor);
 				if(%factor > 0.4)
-					%_name = "Someone";
+					%_name = "Unknown";
 
 				%distfactor = %realdist / %range;
 				if(%distfactor > 0.5)
@@ -290,11 +291,11 @@ package DespairChat
 
 			if(%member.player.unconscious && !%member.player.currResting)
 			{
-				%_name = "Someone";
+				%_name = "Unknown";
 				if(%type !$= "whispers") //whispering to someone sleeping is LOUD AND CLEAR
 					%_text = scrambleText(%text, 0.5);
 			}
-	
+
 			messageClient(%member, '', '\c7[%1] <color:%5>%2 %3<color:%6>, %4', %time, %_name, %type, %_text, %c1, %c2);
 		}
 	}
