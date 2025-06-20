@@ -1,129 +1,289 @@
-datablock AudioProfile(VoicePain1Male) {
-	fileName = $Despair::Path @ "res/sounds/voice/male_pain-01.wav";
+datablock AudioProfile(VoicePain1M1) {
+	fileName = $Despair::Path @ "res/sounds/voice/male-pain-01-M1.wav";
 	description = audioClose3D;
 	preload = true;
 };
-datablock AudioProfile(VoicePain2Male) {
-	fileName = $Despair::Path @ "res/sounds/voice/male_pain-02.wav";
+datablock AudioProfile(VoicePain2M1) {
+	fileName = $Despair::Path @ "res/sounds/voice/male-pain-02-M1.wav";
 	description = audioClose3D;
 	preload = true;
 };
-datablock AudioProfile(VoicePain3Male) {
-	fileName = $Despair::Path @ "res/sounds/voice/male_pain-03.wav";
+datablock AudioProfile(VoicePain3M1) {
+	fileName = $Despair::Path @ "res/sounds/voice/male-pain-03-M1.wav";
 	description = audioClose3D;
 	preload = true;
 };
-$painSoundCount["male"] = 3;
 
-datablock AudioProfile(VoiceDeath1Male) {
-	fileName = $Despair::Path @ "res/sounds/voice/male_Die-01.wav";
+datablock AudioProfile(VoicePain1M2) {
+	fileName = $Despair::Path @ "res/sounds/voice/male-pain-01-M2.wav";
 	description = audioClose3D;
 	preload = true;
 };
-datablock AudioProfile(VoiceDeath2Male) {
-	fileName = $Despair::Path @ "res/sounds/voice/male_Die-02.wav";
+datablock AudioProfile(VoicePain2M2) {
+	fileName = $Despair::Path @ "res/sounds/voice/male-pain-02-M2.wav";
 	description = audioClose3D;
 	preload = true;
 };
-datablock AudioProfile(VoiceDeath3Male) {
-	fileName = $Despair::Path @ "res/sounds/voice/male_Die-03.wav";
+datablock AudioProfile(VoicePain3M2) {
+	fileName = $Despair::Path @ "res/sounds/voice/male-pain-03-M2.wav";
 	description = audioClose3D;
 	preload = true;
 };
-datablock AudioProfile(VoiceDeath4Male) {
-	fileName = $Despair::Path @ "res/sounds/voice/male_Die-04.wav";
+$painSoundCount["M2"] = 3;
+datablock AudioProfile(VoicePain1M3) {
+	fileName = $Despair::Path @ "res/sounds/voice/male-pain-01-M3.wav";
 	description = audioClose3D;
 	preload = true;
 };
-$deathSoundCount["male"] = 4;
+datablock AudioProfile(VoicePain2M3) {
+	fileName = $Despair::Path @ "res/sounds/voice/male-pain-02-M3.wav";
+	description = audioClose3D;
+	preload = true;
+};
+datablock AudioProfile(VoicePain3M3) {
+	fileName = $Despair::Path @ "res/sounds/voice/male-pain-03-M3.wav";
+	description = audioClose3D;
+	preload = true;
+};
 
-datablock AudioProfile(VoiceShock1Male) {
-	fileName = $Despair::Path @ "res/sounds/voice/male_shock-01.wav";
-	description = AudioDefault3d;
+datablock AudioProfile(VoiceDeath1M1) {
+	fileName = $Despair::Path @ "res/sounds/voice/male-die-01-M1.wav";
+	description = audioClose3D;
 	preload = true;
 };
-datablock AudioProfile(VoiceShock2Male) {
-	fileName = $Despair::Path @ "res/sounds/voice/male_shock-02.wav";
-	description = AudioDefault3d;
+datablock AudioProfile(VoiceDeath2M1) {
+	fileName = $Despair::Path @ "res/sounds/voice/male-die-02-M1.wav";
+	description = audioClose3D;
 	preload = true;
 };
-datablock AudioProfile(VoiceShock3Male) {
-	fileName = $Despair::Path @ "res/sounds/voice/male_shock-03.wav";
-	description = AudioDefault3d;
+datablock AudioProfile(VoiceDeath3M1) {
+	fileName = $Despair::Path @ "res/sounds/voice/male-die-03-M1.wav";
+	description = audioClose3D;
 	preload = true;
 };
-datablock AudioProfile(VoiceShock4Male) {
-	fileName = $Despair::Path @ "res/sounds/voice/male_shock-04.wav";
-	description = AudioDefault3d;
-	preload = true;
-};
-datablock AudioProfile(VoiceShock5Male) {
-	fileName = $Despair::Path @ "res/sounds/voice/male_shock-05.wav";
-	description = AudioDefault3d;
-	preload = true;
-};
-$shockSoundCount["male"] = 5;
+$deathSoundCount["M1"] = 3;
 
+datablock AudioProfile(VoiceDeath1M2) {
+	fileName = $Despair::Path @ "res/sounds/voice/male-die-01-M2.wav";
+	description = audioClose3D;
+	preload = true;
+};
+datablock AudioProfile(VoiceDeath2M2) {
+	fileName = $Despair::Path @ "res/sounds/voice/male-die-02-M2.wav";
+	description = audioClose3D;
+	preload = true;
+};
+datablock AudioProfile(VoiceDeath3M2) {
+	fileName = $Despair::Path @ "res/sounds/voice/male-die-03-M2.wav";
+	description = audioClose3D;
+	preload = true;
+};
 
-datablock AudioProfile(VoicePain1Female) {
-	fileName = $Despair::Path @ "res/sounds/voice/female_pain-01.wav";
+datablock AudioProfile(VoiceDeath1M3) {
+	fileName = $Despair::Path @ "res/sounds/voice/male-die-01-M3.wav";
 	description = audioClose3D;
 	preload = true;
 };
-datablock AudioProfile(VoicePain2Female) {
-	fileName = $Despair::Path @ "res/sounds/voice/female_pain-02.wav";
+datablock AudioProfile(VoiceDeath2M3) {
+	fileName = $Despair::Path @ "res/sounds/voice/male-die-02-M3.wav";
 	description = audioClose3D;
 	preload = true;
 };
-datablock AudioProfile(VoicePain3Female) {
-	fileName = $Despair::Path @ "res/sounds/voice/female_pain-03.wav";
+datablock AudioProfile(VoiceDeath3M3) {
+	fileName = $Despair::Path @ "res/sounds/voice/male-die-03-M3.wav";
 	description = audioClose3D;
 	preload = true;
 };
-$painSoundCount["female"] = 3;
 
-datablock AudioProfile(VoiceDeath1Female) {
-	fileName = $Despair::Path @ "res/sounds/voice/Female_Pain-04.wav";
-	description = audioClose3D;
-	preload = true;
-};
-datablock AudioProfile(VoiceDeath2Female) {
-	fileName = $Despair::Path @ "res/sounds/voice/Female_Pain-05.wav";
-	description = audioClose3D;
-	preload = true;
-};
-datablock AudioProfile(VoiceDeath3Female) {
-	fileName = $Despair::Path @ "res/sounds/voice/Female_Pain-06.wav";
-	description = audioClose3D;
-	preload = true;
-};
-$deathSoundCount["female"] = 3;
-
-datablock AudioProfile(VoiceShock1Female) {
-	fileName = $Despair::Path @ "res/sounds/voice/Female_shock-01.wav";
+datablock AudioProfile(VoiceShock1M1) {
+	fileName = $Despair::Path @ "res/sounds/voice/male-shock-01-M1.wav";
 	description = AudioDefault3d;
 	preload = true;
 };
-datablock AudioProfile(VoiceShock2Female) {
-	fileName = $Despair::Path @ "res/sounds/voice/Female_shock-02.wav";
+datablock AudioProfile(VoiceShock2M1) {
+	fileName = $Despair::Path @ "res/sounds/voice/male-shock-02-M1.wav";
 	description = AudioDefault3d;
 	preload = true;
 };
-datablock AudioProfile(VoiceShock3Female) {
-	fileName = $Despair::Path @ "res/sounds/voice/Female_shock-03.wav";
+datablock AudioProfile(VoiceShock3M1) {
+	fileName = $Despair::Path @ "res/sounds/voice/male-shock-03-M1.wav";
 	description = AudioDefault3d;
 	preload = true;
 };
-$shockSoundCount["female"] = 3;
 
-datablock AudioProfile(VoiceCheese1Female) {
-	fileName = $Despair::Path @ "res/sounds/voice/Female_Death-01.wav";
+datablock AudioProfile(VoiceShock1M2) {
+	fileName = $Despair::Path @ "res/sounds/voice/male-shock-01-M2.wav";
+	description = AudioDefault3d;
+	preload = true;
+};
+datablock AudioProfile(VoiceShock2M2) {
+	fileName = $Despair::Path @ "res/sounds/voice/male-shock-02-M2.wav";
+	description = AudioDefault3d;
+	preload = true;
+};
+datablock AudioProfile(VoiceShock3M2) {
+	fileName = $Despair::Path @ "res/sounds/voice/male-shock-03-M2.wav";
+	description = AudioDefault3d;
+	preload = true;
+};
+
+datablock AudioProfile(VoiceShock1M3) {
+	fileName = $Despair::Path @ "res/sounds/voice/male-shock-01-M3.wav";
+	description = AudioDefault3d;
+	preload = true;
+};
+datablock AudioProfile(VoiceShock2M3) {
+	fileName = $Despair::Path @ "res/sounds/voice/male-shock-02-M3.wav";
+	description = AudioDefault3d;
+	preload = true;
+};
+datablock AudioProfile(VoiceShock3M3) {
+	fileName = $Despair::Path @ "res/sounds/voice/male-shock-03-M3.wav";
+	description = AudioDefault3d;
+	preload = true;
+};
+
+datablock AudioProfile(VoicePain1F1) {
+	fileName = $Despair::Path @ "res/sounds/voice/female-pain-01-F1.wav";
 	description = audioClose3D;
 	preload = true;
 };
-datablock AudioProfile(VoiceCheese2Female) {
-	fileName = $Despair::Path @ "res/sounds/voice/Female_Death-02.wav";
+datablock AudioProfile(VoicePain2F1) {
+	fileName = $Despair::Path @ "res/sounds/voice/female-pain-02-F1.wav";
 	description = audioClose3D;
+	preload = true;
+};
+datablock AudioProfile(VoicePain3F1) {
+	fileName = $Despair::Path @ "res/sounds/voice/female-pain-03-F1.wav";
+	description = audioClose3D;
+	preload = true;
+};
+
+datablock AudioProfile(VoicePain1F2) {
+	fileName = $Despair::Path @ "res/sounds/voice/female-pain-01-F2.wav";
+	description = audioClose3D;
+	preload = true;
+};
+datablock AudioProfile(VoicePain2F2) {
+	fileName = $Despair::Path @ "res/sounds/voice/female-pain-02-F2.wav";
+	description = audioClose3D;
+	preload = true;
+};
+datablock AudioProfile(VoicePain3F2) {
+	fileName = $Despair::Path @ "res/sounds/voice/female-pain-03-F2.wav";
+	description = audioClose3D;
+	preload = true;
+};
+
+datablock AudioProfile(VoicePain1F3) {
+	fileName = $Despair::Path @ "res/sounds/voice/female-pain-01-F3.wav";
+	description = audioClose3D;
+	preload = true;
+};
+datablock AudioProfile(VoicePain2F3) {
+	fileName = $Despair::Path @ "res/sounds/voice/female-pain-02-F3.wav";
+	description = audioClose3D;
+	preload = true;
+};
+datablock AudioProfile(VoicePain3F3) {
+	fileName = $Despair::Path @ "res/sounds/voice/female-pain-03-F3.wav";
+	description = audioClose3D;
+	preload = true;
+};
+
+datablock AudioProfile(VoiceDeath1F1) {
+	fileName = $Despair::Path @ "res/sounds/voice/female-die-01-F1.wav";
+	description = audioClose3D;
+	preload = true;
+};
+datablock AudioProfile(VoiceDeath2F1) {
+	fileName = $Despair::Path @ "res/sounds/voice/female-die-02-F1.wav";
+	description = audioClose3D;
+	preload = true;
+};
+datablock AudioProfile(VoiceDeath3F1) {
+	fileName = $Despair::Path @ "res/sounds/voice/female-die-03-F1.wav";
+	description = audioClose3D;
+	preload = true;
+};
+
+datablock AudioProfile(VoiceDeath1F2) {
+	fileName = $Despair::Path @ "res/sounds/voice/female-die-01-F2.wav";
+	description = audioClose3D;
+	preload = true;
+};
+datablock AudioProfile(VoiceDeath2F2) {
+	fileName = $Despair::Path @ "res/sounds/voice/female-die-02-F2.wav";
+	description = audioClose3D;
+	preload = true;
+};
+datablock AudioProfile(VoiceDeath3F2) {
+	fileName = $Despair::Path @ "res/sounds/voice/female-die-03-F2.wav";
+	description = audioClose3D;
+	preload = true;
+};
+
+datablock AudioProfile(VoiceDeath1F3) {
+	fileName = $Despair::Path @ "res/sounds/voice/female-die-01-F3.wav";
+	description = audioClose3D;
+	preload = true;
+};
+datablock AudioProfile(VoiceDeath2F3) {
+	fileName = $Despair::Path @ "res/sounds/voice/female-die-02-F3.wav";
+	description = audioClose3D;
+	preload = true;
+};
+datablock AudioProfile(VoiceDeath3F3) {
+	fileName = $Despair::Path @ "res/sounds/voice/female-die-03-F3.wav";
+	description = audioClose3D;
+	preload = true;
+};
+
+datablock AudioProfile(VoiceShock1F1) {
+	fileName = $Despair::Path @ "res/sounds/voice/female-shock-01-F1.wav";
+	description = AudioDefault3d;
+	preload = true;
+};
+datablock AudioProfile(VoiceShock2F1) {
+	fileName = $Despair::Path @ "res/sounds/voice/female-shock-02-F1.wav";
+	description = AudioDefault3d;
+	preload = true;
+};
+datablock AudioProfile(VoiceShock3F1) {
+	fileName = $Despair::Path @ "res/sounds/voice/female-shock-03-F1.wav";
+	description = AudioDefault3d;
+	preload = true;
+};
+
+datablock AudioProfile(VoiceShock1F2) {
+	fileName = $Despair::Path @ "res/sounds/voice/female-shock-01-F2.wav";
+	description = AudioDefault3d;
+	preload = true;
+};
+datablock AudioProfile(VoiceShock2F2) {
+	fileName = $Despair::Path @ "res/sounds/voice/female-shock-02-F2.wav";
+	description = AudioDefault3d;
+	preload = true;
+};
+datablock AudioProfile(VoiceShock3F2) {
+	fileName = $Despair::Path @ "res/sounds/voice/female-shock-03-F2.wav";
+	description = AudioDefault3d;
+	preload = true;
+};
+
+datablock AudioProfile(VoiceShock1F3) {
+	fileName = $Despair::Path @ "res/sounds/voice/female-shock-01-F3.wav";
+	description = AudioDefault3d;
+	preload = true;
+};
+datablock AudioProfile(VoiceShock2F3) {
+	fileName = $Despair::Path @ "res/sounds/voice/female-shock-02-F3.wav";
+	description = AudioDefault3d;
+	preload = true;
+};
+datablock AudioProfile(VoiceShock3F3) {
+	fileName = $Despair::Path @ "res/sounds/voice/female-shock-03-F3.wav";
+	description = AudioDefault3d;
 	preload = true;
 };
 
@@ -193,11 +353,12 @@ datablock ProjectileData(AlarmProjectile)
 
 function Player::playShock(%player)
 {
+	%app = %player.character.appearance;
 	if(isObject(%player.character))
-		%gender = %player.character.gender;
-	if(%gender $= "")
-		%gender = "male";
-	%player.playAudio(0, VoiceShock @ getRandom(1,$shockSoundCount[%gender]) @ %gender);
+		%voice = getField(%app, 9);
+	if(%voice $= "")
+		%voice = "M1";
+	%player.playAudio(0, VoiceShock @ getRandom(1,3) @ %voice);
 	if(isObject(%client = %player.client))
 	RS_Log(%client.getPlayerName() SPC "(" @ getCharacterName(%client.character, 1) @ ") [" @ %client.getBLID() @ "] screamed.", "\c1");
 }
@@ -291,23 +452,25 @@ package DespairVoice
 {
 	function Player::playPain(%player)
 	{
+		%app = %player.character.appearance;
 		if(isObject(%player.character))
 		{
-			%gender = %player.character.gender;
+			%voice = getField(%app, 9);
 		}
-		if(%gender $= "")
-			%gender = "male";
+		if(%voice $= "")
+			%voice = "M1";
 		%player.stopAudio(0);
-		%player.playAudio(0, VoicePain @ getRandom(1,$painSoundCount[%gender]) @ %gender);
+		%player.playAudio(0, VoicePain @ getRandom(1,3) @ %voice);
 	}
 	function Player::playDeathCry(%player)
 	{
+		%app = %player.character.appearance;
 		if(isObject(%player.character))
-			%gender = %player.character.gender;
-		if(%gender $= "")
-			%gender = "male";
+			%voice = getField(%app, 9);
+		if(%voice $= "")
+			%voice = "M1";
 		%player.stopAudio(0);
-		%player.playAudio(0, VoiceDeath @ getRandom(1,$deathSoundCount[%gender]) @ %gender);
+		%player.playAudio(0, VoiceDeath @ getRandom(1,3) @ %voice);
 	}
 };
 activatePackage("DespairVoice");

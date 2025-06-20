@@ -16,8 +16,13 @@ function Player::clearStatusEffects(%player)
 
 function Player::removeStatusEffect(%player, %slot, %effect)
 {
+
 	if(%effect !$= "" && %player.statusEffect[%slot] !$= %effect) //it changed
 		return;
+	if(%effect $= "concussed")
+	{
+		%player.character.concussedEffect = 0;
+	}
 	%player.setStatusEffect(%slot, "");
 	if(isObject(%player.client))
 		%player.client.updateBottomPrint();
@@ -137,13 +142,13 @@ function Player::setStatusEffect(%player, %slot, %effect, %nomsg)
 			if(%slot != $SE_damageSlot1)
 				return %slot;
 			if(!%nomsg && isObject(%player.client) && %player.statusEffect[%slot] !$= "concussed")
-				%player.addMood(-3, "You got " @ getStatusEffectColor(%effect) @ "concussed\c5!", 1);
-				%player.setWhiteOut(0.4);
+				%player.addMood(-3, "You are " @ getStatusEffectColor(%effect) @ "concussed\c5!", 1);
 			//BOOM!! FREAK THE FUCK OUT!!
 			%player.swingSpeedMod = 1.2;
-			%player.updateSpeedScale(0.8);
+			%player.updateSpeedScale(0.85);
 			cancel(%player.statusSchedule[%slot]);
-			%player.statusSchedule[%slot] = %player.schedule(3000, removeStatusEffect, %slot, %effect);
+			%player.character.concussedEffect = 1;
+			%player.statusSchedule[%slot] = %player.schedule(25000, removeStatusEffect, %slot, %effect);
 		case "abdominal trauma": //Todo: puking blood
 			%player.swingSpeedMod = 1.2;
 			%player.updateSpeedScale(0.8);

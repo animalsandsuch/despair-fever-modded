@@ -138,11 +138,32 @@ function Player::KnockOutTick(%this, %ticks, %done)
 	{
 		%choking = true;
 	}
+	if (%this.character.trait["Paranoid"])
+	{
+		if(getRandom() < 0.05)
+		{
+			if(%fakechoking)
+			{
+			}
+			else
+			%this.fakeChokeTick = 0;
+			%fakechoking = true;
+		}
+		if(%this.fakeChokeTick !$= 5)
+		{
+			%fakechoking = true;
+			%this.fakeChokeTick += 1;
+		}
+		if(%fakechoking !$= true)
+		{
+		%done += 1;
+		}
+	}
 	else
 	{
 		%done += 1;
 	}
-
+    
 	if (%done >= %ticks)
 	{
 		%this.WakeUp();
@@ -152,6 +173,29 @@ function Player::KnockOutTick(%this, %ticks, %done)
 	{
 		%this.client.centerPrint("\c6" @ %ticks - %done SPC "seconds left until you wake up.", 2);
 		if(%choking)
+		{
+			%high = -1;
+			%choice[%high++] = "can't breathe";
+			%choice[%high++] = "no air";
+			%choice[%high++] = "choking";
+			%choice[%high++] = "can't move";
+			%choice[%high++] = "help";
+			%choice[%high++] = "please";
+			%choice[%high++] = "gasp";
+			%choice[%high++] = "it hurts";
+			%choice[%high++] = "my neck";
+			%choice[%high++] = "no";
+			%choice[%high++] = "dying";
+
+			%dream = %choice[getRandom(%high)];
+			messageClient(%this.client, '', '   \c1... %1 ...', %dream);
+			if(getRandom() < 0.4)
+			{
+				%this.forcedEmote = true;
+				serverCmdMe(%this.client, "gasps!");
+			}
+		}
+		else if(%fakechoking)
 		{
 			%high = -1;
 			%choice[%high++] = "can't breathe";
@@ -194,6 +238,7 @@ function Player::KnockOutTick(%this, %ticks, %done)
 			messageClient(%this.client, '', '   \c1... %1 ...', %dream);
 		}
 	}
+	
 	if(getRandom() < 0.01)
 		%this.spawnFiber();
 	%this.wakeUpSchedule = %this.schedule(1000, KnockOutTick, %ticks, %done);

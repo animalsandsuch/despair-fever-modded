@@ -120,6 +120,17 @@ function sprayBloodGush(%position, %velocity, %source)
 		getRandomScalar($SprayBloodHitAngleGush), getRandomScalar($SprayBloodHitAngleGush)), %source);
 }
 
+//function updateCorpseBloodPoolSchedule(%pos, %source)
+//{
+//	%obj = %source;
+//	cancel(%obj.updateCorpseBloodPoolSchedule);
+//	if(%obj.getState() !$= "Dead")
+//		return;
+//	if($despairTrial !$= "") //It's very annoying to cough during trials let's face it
+//		return;
+//	updateCorpseBloodPool(%pos, %source)
+//	%obj.updateCorpseBloodPoolSchedule() = %obj.schedule(getMax(30000, 35000), updateCorpseBloodPoolSchedule, %pos, %source);
+//}
 function updateCorpseBloodPool(%pos, %source)
 {
 	%ray = containerRayCast(%pos, VectorSub(%pos, "0 0 1"), $SprayBloodMask);

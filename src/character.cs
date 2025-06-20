@@ -9,7 +9,8 @@ function getRandomAppearance(%gender)
 		getRandomPantsColor() TAB
 		getRandomPantsColor() TAB
 		getRandomHairColor() TAB
-		getRandomFontName();
+		getRandomFontName() TAB
+		getRandomVoiceName(%gender);
 	return %appearance;
 }
 
@@ -415,6 +416,38 @@ function getHairList(%gender)
 	return %fields;
 }
 
+
+function getVoiceList(%gender)
+{
+	%high = -1;
+	//Unisex hairs
+	if (%gender $= "male") //Male hairs
+	{
+		%choice[%high++] = "M1";
+		%choice[%high++] = "M2";
+		%choice[%high++] = "M3";
+	}
+	else if (%gender $= "female")//Female hairs
+	{
+		%choice[%high++] = "F1";
+		%choice[%high++] = "F2";
+		%choice[%high++] = "F3";
+	}
+	%i = -1;
+	while(%i++ <= %high)
+	{
+		%fields = setField(%fields, getFieldCount(%fields), %choice[%i]);
+	}
+
+	return %fields;
+}
+
+function getRandomVoiceName(%gender)
+{
+	%fields = getVoiceList(%gender);
+
+	return pickField(%fields);
+}
 
 //todo: fix this to new system
 function getRandomSpecialChar(%char)

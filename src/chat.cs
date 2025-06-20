@@ -86,9 +86,18 @@ function serverCmdMe(%client, %m1, %m2, %m3, %m4, %m5, %m6, %m7, %m8, %m9, %m10,
 		%other = ClientGroup.getObject(%i);
 		if (%other.miniGame == $DefaultMiniGame && isObject(%other.player))
 		{
+			%distanceHearing = 24;
+			if(%pl.character.trait["Keen Hearing"])
+			{
+				%distanceHearing = 40;
+			}
+			if(%pl.character.trait["Poor Hearing"])
+			{
+				%distanceHearing = 16;
+			}
 			if(%other.player.unconscious)
 				continue;
-			if (vectorDist(%a = %other.player.getEyePoint(), %b = %pl.getEyePoint()) > 24) //Out of range
+			if (vectorDist(%a = %other.player.getEyePoint(), %b = %pl.getEyePoint()) > %distanceHearing) //Out of range
 				continue;
 			if(%ray = containerRayCast(%a, %b, $TypeMasks::FxBrickObjectType, %pl))
 				%_name = "Unknown";
@@ -103,6 +112,39 @@ package DespairChat
 	{
 		if (%client.miniGame != $DefaultMiniGame)
 			Parent::serverCmdStopTalking(%client);
+	}
+	function hearSpeech(%member, %time, %_name, %type, %_text, %c1, %c2)
+	{
+		if(%member.character.concussedEffect $= 1)
+		{
+			%_name = scrambleText(%_name, 0.65);
+			%_text = scrambleText(%_text, 0.65);
+			%time = scrambleText(%time, 0.65);
+			%type = scrambleText(%type, 0.65);
+		}
+		if(%member.character.trait["Amnesiac"])
+		{
+			%time = "D#|##:##ZM";
+		}
+		if(%member.character.trait["Poor Hearing"])
+		{
+			%_text = scrambleText(%_text, 0.15);
+		}
+		for (%i=0;%i<strlen(%_text);%i++)
+	{
+		if ((%char = getSubStr(%_text, %i, 1)) $= " ") //space character
+			continue;
+		if (%char $= "?")
+		{
+			%type = "questions";
+		}
+		if (%char $= "!")
+		{
+			%type = "exclaims";
+		}
+
+	}
+		messageClient(%member, '', '\c7[%1] <color:%5>%2 %3<color:%6>, %4', %time, %_name, %type, %_text, %c1, %c2);
 	}
 	function serverCmdMessageSent(%client, %text)
 	{
@@ -190,6 +232,11 @@ package DespairChat
 				return;
 		}
 
+		if(%player.character.concussedEffect $= 1)
+		{
+			%text = confusedText(%text, 0.7);
+		}
+
 		if(%player.character.trait["Lisp"])
 		{
 			%text = lispText(%text);
@@ -202,10 +249,11 @@ package DespairChat
 
 		if(%player.character.trait["Loudmouth"])
 		{
-			%range += 3;
+			%range *= 1.2;
 		}
 		else if(%player.character.trait["Softspoken"])
 		{
+			%type = "mumbles";
 			%range *= 0.8;
 			%text = softSpeakText(%text);
 		}
@@ -219,7 +267,7 @@ package DespairChat
 			radioTransmitMessage(%player, %props.channel, %text);
 		}
 
-		if(%type $= "says")
+		if(%type $= "says" || %type $= "exclaims" || %type $= "questions" || %type $= "mutters")
 		{
 			serverPlay3D(%sound, %player.getHackPosition());
 
@@ -296,7 +344,7 @@ package DespairChat
 					%_text = scrambleText(%text, 0.5);
 			}
 
-			messageClient(%member, '', '\c7[%1] <color:%5>%2 %3<color:%6>, %4', %time, %_name, %type, %_text, %c1, %c2);
+			hearSpeech(%member, %time, %_name, %type, %_text, %c1, %c2);
 		}
 	}
 	function serverCmdTeamMessageSent(%client, %text) //Adminchat & KillerChat
@@ -430,6 +478,43 @@ function stutterText(%text, %prob)
 			%result = getSubStr(%result, 0, %i) @ %char @ "-" @ %char @ getSubStr(%result, %i+1, strlen(%result));
 	}
 	return %result;
+}
+
+function confusedText(%text, %prob)
+{
+	if (%text $= "")
+		return;
+	if (%prob $= "")
+		%prob = 0.5;
+	if (%prob <= 0)
+		return %text;
+	%result = %text;
+		
+		if (getRandom() < %prob)
+			{
+			%high = -1;
+			%choice[%high++] = "H.. Huh?";
+			%choice[%high++] = "Wuh...";
+			%choice[%high++] = "Guh?";
+			%choice[%high++] = "Where am I..?";
+			%choice[%high++] = "I'm tired...";
+			%choice[%high++] = "I should take a nap...";
+			%choice[%high++] = "Hello..?";
+			%choice[%high++] = "Brain fuzzy...";
+			%choice[%high++] = "What was I..?";
+			%choice[%high++] = "Where's..?";
+			%choice[%high++] = "Who's..?";
+			%choice[%high++] = "When's..?";
+			%choice[%high++] = "Blurry...";
+			%choice[%high++] = "Eyes hurt...";
+			%choice[%high++] = "Hands trembling...";
+			%result = %choice[getRandom(%high)];
+			}
+
+	
+
+	return %result;
+	
 }
 
 function lispText(%text, %prob)

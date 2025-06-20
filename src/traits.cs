@@ -1,10 +1,11 @@
 $Despair::Traits::Tick = 3000; //miliseconds
 
-$Despair::Traits::Positive = "Writer	Investigative	Heavy Sleeper	Gang Member	Extra Tough	Bodybuilder	Athletic	Loudmouth	Optimistic	Glutton	Masochist	Lightfooted	Thick Skinned"; //Medium
+$Despair::Traits::Positive = "Keen Hearing	Writer	Investigative	Heavy Sleeper	Gang Member	Extra Tough	Bodybuilder	Athletic	Loudmouth	Optimistic	Glutton	Masochist	Lightfooted	Thick Skinned"; //Medium
 $Despair::Traits::Neutral = "Snorer	Feel No Pain	Hatter"; //Wimp
-$Despair::Traits::Negative = "Dysgraphia	Clumsy	Paranoid	Nervous	Frail	Sluggish	Hemophiliac	Squeamish	Softspoken	Social Anxiety	Mood Swings	Melancholic	Schizo	Chain Smoker	Lisp	Cold	Alopecia"; //Schizo Narcoleptic
+$Despair::Traits::Negative = "Poor Hearing	Amnesiac	Dysgraphia	Clumsy	Paranoid	Nervous	Frail	Sluggish	Hemophiliac	Squeamish	Softspoken	Social Anxiety	Mood Swings	Melancholic	Delusional	Chain Smoker	Lisp	Cold	Alopecia"; //Schizo Narcoleptic
 
 //positive
+$Despair::Traits::Description["Keen Hearing"] = "You have good hearing. You can hear further than most.";
 $Despair::Traits::Description["Writer"] = "You guide your pen with skill. Your writing no longer gets scrambled, even if you're dying or your pen is running out of ink.";
 $Despair::Traits::Description["Thick Skinned"] = "Your skin is hard and resilient. You bleed much, much less.";
 $Despair::Traits::Description["Lightfooted"] = "You make no sound when you walk. You are neenja.";
@@ -36,11 +37,12 @@ $Despair::Traits::Description["Wimp"] = "You cry when you bleed. Pussy.";
 
 
 //negative
-$Despair::Traits::Description["Dementia"] = "You don't remember when someone said something to you.";
+$Despair::Traits::Description["Poor Hearing"] = "There's a chance text is obfuscated, even when someone is nearby.";
+$Despair::Traits::Description["Amnesiac"] = "You have difficulty hearing when things were said.";
 $Despair::Traits::Description["Dysgraphia"] = "Everything you write ends up looking like chicken-scratch.";
 $Despair::Traits::Description["Lisp"] = "You have a heavy lithp.";
 $Despair::Traits::Description["Clumsy"] = "Trip on blood and dropped items, chance to drop held item when tripping!";
-$Despair::Traits::Description["Paranoid"] = "Constantly alert. Never able to get a good night's rest.";
+$Despair::Traits::Description["Paranoid"] = "Constantly alert. Never able to get a good night's rest. Chance to hear strange things.";
 $Despair::Traits::Description["Nervous"] = "Stuttered speech, easily stressed out.";
 $Despair::Traits::Description["Frail"] = "Less health.";
 $Despair::Traits::Description["Sluggish"] = "Slightly slower run speed.";
@@ -54,7 +56,7 @@ $Despair::Traits::Description["Chain Smoker"] = "You need to smoke, otherwise yo
 $Despair::Traits::Description["Alopecia"] = "You shed hair strands randomly. Also, even while wearing a hat, you shed hair fibers while swinging.";
 //disabled
 $Despair::Traits::Description["Narcoleptic"] = "Randomly pass out.";
-$Despair::Traits::Description["Schizo"] = "You hear things that aren't really there.";
+$Despair::Traits::Description["Delusional"] = "You hear things that aren't really there.";
 
 function GenerateTraits(%character, %client)
 {
@@ -117,7 +119,12 @@ function Player::traitSchedule(%obj)
 	if(!$Despair::Traits::Enabled)
 		return;
 	if(%obj.getState() $= "Dead")
+	{
+		updateCorpseBloodPool(%obj.getPosition(), %obj);
+		%obj.pools++;
+		%obj.poolSchedule = %obj.schedule(getMax(5000, 5000), poolSchedule, %obj);
 		return;
+	}
 	if($despairTrial !$= "") //It's very annoying to cough during trials let's face it
 		return;
 
@@ -259,7 +266,15 @@ function Player::traitSchedule(%obj)
 			}
 		}
 	}
-	if(%obj.character.trait["Schizo"])
+	if(%obj.character.trait["Paranoid"])
+	{
+	if(getRandom() < 0.01)
+		{
+			%obj.addMood(-1, pickField("Something's out there." TAB "Do you hear that, too?" TAB "Hello?"));
+			%obj.client.play2d(pickField("Hallucination1" TAB "Hallucination2" TAB "Hallucination3" TAB "Hallucination4"));
+		}
+	}
+	if(%obj.character.trait["Delusional"])
 	{
 		
 		if(getRandom() < 0.01)
@@ -269,10 +284,9 @@ function Player::traitSchedule(%obj)
 			%dream = %character.name;
 			if(getRandom() < 0.1)
 			{
-            %dream = pickField("Your Mother" TAB "Your Father" TAB "Your Brother" TAB "Your Sister" TAB "He" TAB "She" TAB "#@%&#$%");
+            %dream = pickField("He" TAB "She" TAB "#@%&#$%");
 			}
 			%high = -1;
-			%type[%high++] = "whispers";
 			%type[%high++] = "says";
 			%type = %type[getRandom(%high)];
 			%time = getDayCycleTime();
@@ -290,10 +304,10 @@ function Player::traitSchedule(%obj)
 			%obj.client.play2d(pickField("BladeHitSound1" TAB "BladeHitSound2" TAB "BluntHitSound1" TAB "BluntHitSound2" TAB "BluntHitSound3"));
 			if(%obj.character.gender $= "female")
 			{
-			%obj.client.play2d(pickField("VoicePain1Female" TAB "VoicePain2Female" TAB "VoicePain3Female"));
+			%obj.client.play2d(pickField("VoicePain1F1" TAB "VoicePain2F1" TAB "VoicePain3F1"));
 			}
 			else
-			%obj.client.play2d(pickField("VoicePain1Male" TAB "VoicePain2Male" TAB "VoicePain3Male"));
+			%obj.client.play2d(pickField("VoicePain1M2" TAB "VoicePain2M2" TAB "VoicePain3M2"));
 		}
 	}
 	if(%obj.character.trait["Cold"])
@@ -379,7 +393,14 @@ function Player::traitSchedule(%obj)
 }
 	
 
-
+function Player::poolSchedule(%obj)
+{
+	cancel(%obj.poolSchedule);
+	updateCorpseBloodPool(%obj.getPosition(), %obj);
+	RS_Log(%obj.getPosition());
+	%obj.pools++;
+	%obj.poolSchedule = %obj.schedule(getMax(5000, 5000), poolSchedule, %obj);
+}
 
 
 function checkTraitConflicts(%list, %trait)
@@ -400,6 +421,7 @@ function checkTraitConflicts(%list, %trait)
 	%conflicts[%c++] = "Apathetic\tMasochist\tChain Smoker";
 	%conflicts[%c++] = "Wimp\tHemophiliac\tThick Skinned";
 	%conflicts[%c++] = "Writer\tDysgraphia";
+	%conflicts[%c++] = "Keen Hearing\tPoor Hearing";
 
     %v = -1;
     while(%v++ <= %c)

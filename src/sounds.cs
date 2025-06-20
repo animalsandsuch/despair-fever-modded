@@ -13,6 +13,34 @@ datablock AudioDescription(AudioQuietLooping3d : AudioClose3d)
 	isLooping = 1;
 };
 
+datablock AudioProfile(Hallucination1)
+{
+	fileName = $Despair::Path @ "res/sounds/paranoid1.wav";
+	description = audioClosest3D;
+	preload = true;
+};
+
+datablock AudioProfile(Hallucination2)
+{
+	fileName = $Despair::Path @ "res/sounds/paranoid2.wav";
+	description = audioClosest3D;
+	preload = true;
+};
+
+datablock AudioProfile(Hallucination3)
+{
+	fileName = $Despair::Path @ "res/sounds/paranoid3.wav";
+	description = audioClosest3D;
+	preload = true;
+};
+
+datablock AudioProfile(Hallucination4)
+{
+	fileName = $Despair::Path @ "res/sounds/paranoid4.wav";
+	description = audioClosest3D;
+	preload = true;
+};
+
 datablock AudioProfile(DescerationSound1)
 {
 	fileName = $Despair::Path @ "res/sounds/gore/desceration-01.wav";

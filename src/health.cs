@@ -68,7 +68,10 @@ package DespairHealth
 		{
 			if(%player.character.trait["Extra Tough"])
 				%damage *= 0.9;
+			if(%player.character.trait["Frail"])
+				%damage *= 1.1;
 		}
+		
 
 		if (%type $= "bleed")
 		{
@@ -344,10 +347,10 @@ package DespairHealth
 			if(%player.character.trait["Hemophiliac"])
 				%player.bleedTicks = 9;
 		}
-		//if(getRandom() > (%type $= "blunt" ? 0.3 : 0.15))
-		//{
-		//	%player.setStatusEffect($SE_damageSlot1, "concussed");
-		//}
+		if(%type $= "blunt" && getRandom() > 0.4)
+		{
+			%player.setStatusEffect($SE_damageSlot1, "concussed");
+		}
 
 
 		if(%player.unconscious)

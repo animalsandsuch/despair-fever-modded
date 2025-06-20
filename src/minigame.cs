@@ -102,11 +102,6 @@ function createPlayer(%client)
 	%player = %client.player;
 	%player.character = %character; //post-death reference to character
 
-	if(%character.trait["Frail"])
-	{
-		%player.maxhealth = 90;
-		%player.health = 90;
-	}
 
 	%character.player = %player;
 	%player.setDatablock(PlayerDespairArmor);
