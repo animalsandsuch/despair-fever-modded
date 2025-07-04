@@ -2,7 +2,7 @@ $Despair::Traits::Tick = 3000; //miliseconds
 
 $Despair::Traits::Positive = "Keen Hearing	Writer	Investigative	Heavy Sleeper	Gang Member	Extra Tough	Bodybuilder	Athletic	Loudmouth	Optimistic	Glutton	Masochist	Lightfooted	Thick Skinned"; //Medium
 $Despair::Traits::Neutral = "Snorer	Feel No Pain	Hatter"; //Wimp
-$Despair::Traits::Negative = "Poor Hearing	Amnesiac	Dysgraphia	Clumsy	Paranoid	Nervous	Frail	Sluggish	Hemophiliac	Squeamish	Softspoken	Social Anxiety	Mood Swings	Melancholic	Delusional	Chain Smoker	Lisp	Cold	Alopecia"; //Schizo Narcoleptic
+$Despair::Traits::Negative = "Amnesiac	Dysgraphia	Clumsy	Paranoid	Nervous	Frail	Sluggish	Hemophiliac	Squeamish	Softspoken	Social Anxiety	Mood Swings	Melancholic	Delusional	Chain Smoker	Lisp	Cold	Alopecia"; //Schizo Narcoleptic Poor Hearing
 
 //positive
 $Despair::Traits::Description["Keen Hearing"] = "You have good hearing. You can hear further than most.";
@@ -144,7 +144,6 @@ function Player::traitSchedule(%obj)
 
 		if(%obj.client.killer)
 			%foundCorpse = ""; //what corpse?
-
 		if(isObject(%foundCorpse) && !%foundcorpse.checkedBy[%obj])
 			serverCmdAlarm(%obj.client, 1); //very easy (and lazy) way of doing this. despairCheckInvestigation has Squeamish check for fainting, too.
 		else if(%stress && getRandom() < 0.03 * %stress)

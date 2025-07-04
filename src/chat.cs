@@ -102,7 +102,7 @@ function serverCmdMe(%client, %m1, %m2, %m3, %m4, %m5, %m6, %m7, %m8, %m9, %m10,
 			if(%ray = containerRayCast(%a, %b, $TypeMasks::FxBrickObjectType, %pl))
 				%_name = "Unknown";
 		}
-		messageClient(%other, '', '\c7[%1] <color:ffff80>%2 %3', %time, %_name, %text);
+		hearMe(%other, %time, %_name, %text);
 	}
 }
 
@@ -120,7 +120,6 @@ package DespairChat
 			%_name = scrambleText(%_name, 0.65);
 			%_text = scrambleText(%_text, 0.65);
 			%time = scrambleText(%time, 0.65);
-			%type = scrambleText(%type, 0.65);
 		}
 		if(%member.character.trait["Amnesiac"])
 		{
@@ -145,6 +144,20 @@ package DespairChat
 
 	}
 		messageClient(%member, '', '\c7[%1] <color:%5>%2 %3<color:%6>, %4', %time, %_name, %type, %_text, %c1, %c2);
+	}
+	function hearMe(%other, %time, %_name, %text)
+	{
+		if(%other.character.concussedEffect $= 1)
+		{
+			%_name = scrambleText(%_name, 0.65);
+			%text = scrambleText(%text, 0.65);
+			%time = scrambleText(%time, 0.65);
+		}
+		if(%other.character.trait["Amnesiac"])
+		{
+			%time = "D#|##:##ZM";
+		}
+		messageClient(%other, '', '\c7[%1] <color:ffff80>%2 %3', %time, %_name, %text);
 	}
 	function serverCmdMessageSent(%client, %text)
 	{

@@ -232,6 +232,8 @@ function PlayerDespairArmor::onAdd(%data, %player)
 		%player.speedScale = 1;
 	if(%player.mood $= "")
 		%player.setMood(0, "You feel fine.");
+	if(%player.character.concussedEffect $= 1)
+		%player.character.concussedEffect = 0;
 	if(!isEventPending(%player.traitSchedule))
 		%player.traitSchedule();
 	if(!isEventPending(%player.moodSchedule))
