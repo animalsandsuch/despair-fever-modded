@@ -89,7 +89,7 @@ function serverCmdMe(%client, %m1, %m2, %m3, %m4, %m5, %m6, %m7, %m8, %m9, %m10,
 			%distanceHearing = 24;
 			if(%pl.character.trait["Keen Hearing"])
 			{
-				%distanceHearing = 40;
+				%distanceHearing = 64;
 			}
 			if(%pl.character.trait["Poor Hearing"])
 			{
