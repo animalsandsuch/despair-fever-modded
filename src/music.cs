@@ -6,6 +6,20 @@ datablock AudioProfile(AnnouncementSound)
 	preload = true;
 };
 
+datablock AudioProfile(Dawn)
+{
+	fileName = $Despair::Path @ "res/sounds/dawn.wav";
+	description = audio2D;
+	preload = true;
+};
+
+datablock AudioProfile(Dusk)
+{
+	fileName = $Despair::Path @ "res/sounds/dusk.wav";
+	description = audio2D;
+	preload = true;
+};
+
 datablock AudioProfile(KillerJingleSound)
 {
 	fileName = $Despair::Path @ "res/sounds/dundun.wav";

@@ -570,6 +570,7 @@ function despairCycleStage(%stage)
 	talk("It is now \c3" @ %stage);
 	if(%stage $= "NIGHT")
 	{
+		serverPlay2d("Dusk");
 		$days++;
 		despairOnNight();
 	}
@@ -618,6 +619,7 @@ function despairCycleStage(%stage)
 
 		$DefaultMiniGame.chatMessageAll('', '\c5~~[Day \c3%1\c5]\c6 Good morning, everyone! %2', $days, %choice[getRandom(%high)]);
 		despairOnMorning();
+		serverPlay2d("Dawn");
 	}
 	$currTimeStage = %stage;
 }

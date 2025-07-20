@@ -217,7 +217,6 @@ function getFaceList(%gender)
 	%choice[%high++] = "smileyneutral";
 	%choice[%high++] = "smirk2";
 	%choice[%high++] = "ehface";
-	%choice[%high++] = "sigh";
 	%choice[%high++] = "smilyevil";
 	%choice[%high++] = "smilyworried";
 	%choice[%high++] = "neutralwhat";

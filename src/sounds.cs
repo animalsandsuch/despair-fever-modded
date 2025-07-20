@@ -13,6 +13,8 @@ datablock AudioDescription(AudioQuietLooping3d : AudioClose3d)
 	isLooping = 1;
 };
 
+
+
 datablock AudioProfile(Hallucination1)
 {
 	fileName = $Despair::Path @ "res/sounds/paranoid1.wav";

@@ -390,9 +390,12 @@ package DespairHealth
 			%player.suicide = true;
 			%player.pools = 1000;
 		}
+		%app = %player.character.appearance;
+		%faceName = getField(%app, 1);
+		%faceName = "sigh";
+		%player.applyAppearance();
 		%player.setDamageFlash(1);
 		%player.setImageTrigger(0, 0);
-
 		//if (%player.attackDot[%player.attackCount] > 0)
 		//{
 		//	%player.playThread(0, pickField("deathBack" TAB "deathLeft" TAB "deathRight"));
