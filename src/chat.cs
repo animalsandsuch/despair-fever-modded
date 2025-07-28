@@ -498,34 +498,17 @@ function confusedText(%text, %prob)
 	if (%text $= "")
 		return;
 	if (%prob $= "")
-		%prob = 0.5;
+		%prob = 0.05;
 	if (%prob <= 0)
 		return %text;
 	%result = %text;
-		
+	for (%i=0;%i<strlen(%result);%i++)
+	{
+		if (strpos("bcdfghjklmnpqrstvxzwy", %char = getSubStr(%result, %i, 1)) == -1) //incompatible
+			continue;
 		if (getRandom() < %prob)
-			{
-			%high = -1;
-			%choice[%high++] = "H.. Huh?";
-			%choice[%high++] = "Wuh...";
-			%choice[%high++] = "Guh?";
-			%choice[%high++] = "Where am I..?";
-			%choice[%high++] = "I'm tired...";
-			%choice[%high++] = "I should take a nap...";
-			%choice[%high++] = "Hello..?";
-			%choice[%high++] = "Brain fuzzy...";
-			%choice[%high++] = "What was I..?";
-			%choice[%high++] = "Where's..?";
-			%choice[%high++] = "Who's..?";
-			%choice[%high++] = "When's..?";
-			%choice[%high++] = "Blurry...";
-			%choice[%high++] = "Eyes hurt...";
-			%choice[%high++] = "Hands trembling...";
-			%result = %choice[getRandom(%high)];
-			}
-
-	
-
+			%result = getSubStr(%result, 0, %i) @ %char @ pickField(" durr " TAB "... durr " TAB " hurr " TAB " guhuhuhuh " TAB "... " TAB "-..? " TAB "... what was i saying ... oh, " TAB " BLELELELELELE " TAB "... my head hurts ... " TAB " anyone got a cig for me? " TAB " bum a ciggie, mate? ") @ getSubStr(%result, %i+1, strlen(%result));
+	}
 	return %result;
 	
 }
